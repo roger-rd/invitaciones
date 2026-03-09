@@ -12,15 +12,15 @@ export const events: EventData[] = [
     whatsapp: "56912345678",
     coverImage: "/images/antonella-jairo/cover.jpg",
     gallery: [
-      "../../public/images/antonella-jairo/20633.pagina.8.jpg",
-      "../../public/images/antonella-jairo/20633.pagina.9.jpg",
-      "../../public/images/antonella-jairo/20633.pagina.11.jpg",
+      "/images/antonella-jairo/20633.pagina.8.jpg",
+      "/images/antonella-jairo/20633.pagina.9.jpg",
+      "/images/antonella-jairo/20633.pagina.11.jpg",
       
     ],
     message: "Acompáñanos en este día tan especial y celebremos juntos nuestro amor.",
   },
   {
-    slug: "cumple-Edinson",
+    slug: "cumple-edinson",
     type: "birthday",
     title: "Cumple de Edinson",
     subtitle: "¡Estás invitado!",
@@ -28,11 +28,11 @@ export const events: EventData[] = [
     location: "Salón de Fiestas las Doñas",
     mapsUrl: "https://maps.app.goo.gl/Rpos3DSC76UBmTDF6",
     whatsapp: "+584149561363",
-    coverImage: "../../public/images/cumple-edinson/edi4.jpeg",
+    coverImage: "/images/cumple-edinson/edi4.jpeg",
      gallery: [
-      "../../public/images/cumple-edinson/edi1.jpeg",
-      "../../public/images/cumple-edinson/edi2.jpeg",
-      "../../public/images/cumple-edinson/edi3.jpeg",
+      "/images/cumple-edinson/edi1.jpeg",
+      "/images/cumple-edinson/edi2.jpeg",
+      "/images/cumple-edinson/edi3.jpeg",
 
      
     ],
