@@ -24,7 +24,7 @@ export const events: EventData[] = [
     type: "birthday",
     title: "Cumple de Edinson",
     subtitle: "¡Estás invitado!",
-    date: "2026-08-20T17:00:00",
+    date: "2026-06-16T17:00:00",
     location: "Salón de Fiestas las Doñas",
     mapsUrl: "https://maps.app.goo.gl/Rpos3DSC76UBmTDF6",
     whatsapp: "+584149561363",
