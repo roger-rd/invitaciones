@@ -13,7 +13,9 @@ export default function RSVP({ phone, title }: RSVPProps) {
   return (
     <section className="bg-rose-50 px-6 py-20">
       <div className="mx-auto max-w-4xl rounded-4xl border border-rose-100 bg-white p-10 text-center shadow-sm">
-        <p className="text-sm uppercase tracking-[0.4em] text-rose-400">
+        <div className="text-4xl">💌</div>
+
+        <p className="mt-4 text-sm uppercase tracking-[0.4em] text-rose-400">
           Confirmación
         </p>
 

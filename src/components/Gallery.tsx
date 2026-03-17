@@ -5,25 +5,35 @@ interface GalleryProps {
 
 export default function Gallery({
   images,
-  title = "Nuestra galería",
+  title = "Galería especial",
 }: GalleryProps) {
   return (
-    <section className="bg-rose-50 px-6 py-16">
+    <section className="bg-white px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center text-3xl font-bold md:text-4xl">{title}</h2>
+        <div className="text-center">
+          <p className="text-sm uppercase tracking-[0.4em] text-rose-400">
+            Recuerdos
+          </p>
+          <h2 className="mt-4 text-3xl font-light md:text-5xl">{title}</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
+            Un vistazo a momentos llenos de alegría, cariño y emoción.
+          </p>
+        </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {images.map((image, index) => (
-            <div
+            <article
               key={`${image}-${index}`}
-              className="overflow-hidden rounded-2xl shadow-md"
+              className="group overflow-hidden rounded-4xl bg-rose-50 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <img
-                src={image}
-                alt={`Galería ${index + 1}`}
-                className="h-80 w-full object-cover transition duration-300 hover:scale-105"
-              />
-            </div>
+              <div className="overflow-hidden">
+                <img
+                  src={image}
+                  alt={`Galería ${index + 1}`}
+                  className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+              </div>
+            </article>
           ))}
         </div>
       </div>

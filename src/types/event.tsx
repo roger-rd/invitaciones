@@ -14,4 +14,5 @@ export interface EventData {
   message: string;
   celebrantName?: string;
   eventPhrase?: string;
+  music?: string;
 }
