@@ -11,6 +11,7 @@ body,
 }
 
 body {
+  font-family: "Monserrat", sans-serif;
   margin: 0;
   background-color: #fffafc;
   color: #1f2937;
@@ -33,4 +34,8 @@ html {
 
 .animate-fadeIn {
   animation: fadeIn 1.5s ease-out;
+}
+
+.font-title{
+  font-family: "Great Vibes", cursive;
 }

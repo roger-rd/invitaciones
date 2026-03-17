@@ -29,7 +29,7 @@ export default function Hero({
             </p>
           ) : null}
 
-          <h1 className="text-5xl font-light leading-tight md:text-7xl">
+          <h1 className="font-title text-6xl leading-tight md:text-8xl">
             {title}
           </h1>
 
