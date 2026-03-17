@@ -1,72 +1,71 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CountdownProps {
   targetDate: string;
 }
 
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
+interface CountdownState {
+  d: number;
+  h: number;
+  m: number;
+  s: number;
 }
 
-function calculateTimeLeft(targetDate: string): TimeLeft {
-  const difference = new Date(targetDate).getTime() - new Date().getTime();
+interface CountdownItemProps {
+  value: number;
+  label: string;
+}
 
-  if (difference <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+function CountdownItem({ value, label }: CountdownItemProps) {
+  return (
+    <div className="flex flex-col items-center">
+      <span className="text-5xl font-light md:text-6xl">{value}</span>
+      <span className="mt-2 text-xs uppercase tracking-widest text-gray-400">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+function calculateTimeLeft(targetDate: string): CountdownState {
+  const diff = new Date(targetDate).getTime() - new Date().getTime();
+
+  if (diff <= 0) {
+    return { d: 0, h: 0, m: 0, s: 0 };
   }
 
   return {
-    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((difference / 1000 / 60) % 60),
-    seconds: Math.floor((difference / 1000) % 60),
+    d: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    h: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    m: Math.floor((diff / 1000 / 60) % 60),
+    s: Math.floor((diff / 1000) % 60),
   };
 }
 
 export default function Countdown({ targetDate }: CountdownProps) {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(
+  const [time, setTime] = useState<CountdownState>(
     calculateTimeLeft(targetDate)
   );
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setTimeLeft(calculateTimeLeft(targetDate));
+    const interval = window.setInterval(() => {
+      setTime(calculateTimeLeft(targetDate));
     }, 1000);
 
-    return () => window.clearInterval(timer);
+    return () => window.clearInterval(interval);
   }, [targetDate]);
 
-  const items = useMemo(
-    () => [
-      { label: "Días", value: timeLeft.days },
-      { label: "Horas", value: timeLeft.hours },
-      { label: "Minutos", value: timeLeft.minutes },
-      { label: "Segundos", value: timeLeft.seconds },
-    ],
-    [timeLeft]
-  );
-
   return (
-    <section className="bg-white px-6 py-16">
-      <div className="mx-auto max-w-5xl text-center">
-        <h2 className="text-3xl font-bold md:text-4xl">Faltan</h2>
+    <section id="countdown" className="bg-white py-20 text-center">
+      <h2 className="text-2xl uppercase tracking-widest text-gray-500">
+        Falta
+      </h2>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {items.map((item) => (
-            <div
-              key={item.label}
-              className="rounded-2xl bg-rose-50 p-6 shadow-sm"
-            >
-              <p className="text-4xl font-bold md:text-5xl">{item.value}</p>
-              <p className="mt-2 text-sm uppercase tracking-widest text-gray-500">
-                {item.label}
-              </p>
-            </div>
-          ))}
-        </div>
+      <div className="mt-10 flex flex-wrap justify-center gap-8">
+        <CountdownItem value={time.d} label="Días" />
+        <CountdownItem value={time.h} label="Horas" />
+        <CountdownItem value={time.m} label="Minutos" />
+        <CountdownItem value={time.s} label="Segundos" />
       </div>
     </section>
   );

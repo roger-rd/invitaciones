@@ -19,21 +19,34 @@ export default function Hero({
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/45" />
 
-     <div className="relative z-10 flex min-h-screen items-center justify-center px-6 text-center text-white animate-fadeIn">
+      <div className="relative z-10 flex min-h-screen items-center justify-center px-6 text-center text-white">
         <div className="max-w-3xl">
           {subtitle ? (
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.35em] md:text-base">
+            <p className="mb-4 text-xs uppercase tracking-[0.45em] text-white/80 md:text-sm">
               {subtitle}
             </p>
           ) : null}
 
-          <h1 className="text-5xl font-bold md:text-7xl">{title}</h1>
+          <h1 className="text-5xl font-light leading-tight md:text-7xl">
+            {title}
+          </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg md:text-2xl">
+          <div className="mx-auto my-6 h-px w-24 bg-white/60" />
+
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/90 md:text-xl">
             {message}
           </p>
+
+          <div className="mt-10">
+            <a
+              href="#countdown"
+              className="inline-block rounded-full border border-white/70 px-8 py-3 text-sm uppercase tracking-[0.25em] text-white transition hover:bg-white hover:text-black"
+            >
+              Ver invitación
+            </a>
+          </div>
         </div>
       </div>
     </section>
