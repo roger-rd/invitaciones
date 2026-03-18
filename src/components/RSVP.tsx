@@ -11,7 +11,7 @@ export default function RSVP({ phone, title }: RSVPProps) {
   const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
 
   return (
-    <section className="bg-rose-50 px-6 py-20">
+    <section id="confirmacion" className="bg-rose-50 px-6 py-20">
       <div className="mx-auto max-w-4xl rounded-4xl border border-rose-100 bg-white p-10 text-center shadow-sm">
         <div className="text-4xl">💌</div>
 

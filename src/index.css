@@ -12,7 +12,6 @@ body,
 
 body {
   font-family: "Monserrat", sans-serif;
-  margin: 0;
   background-color: #fffafc;
   color: #1f2937;
 }
@@ -38,4 +37,8 @@ html {
 
 .font-title{
   font-family: "Great Vibes", cursive;
+}
+
+::selection {
+  background: rgba(244, 114, 182, 0.25);
 }
