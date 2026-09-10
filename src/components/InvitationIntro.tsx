@@ -1,3 +1,6 @@
+import { useState } from "react";
+import Reveal from "./Reveal";
+
 interface InvitationIntroProps {
   title: string;
   subtitle?: string;
@@ -21,48 +24,60 @@ export default function InvitationIntro({
   date,
   onOpen,
 }: InvitationIntroProps) {
+  const [opening, setOpening] = useState(false);
+
+  const handleOpen = () => {
+    setOpening(true);
+    onOpen();
+  };
+
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black text-white">
+    <section className="relative flex min-h-screen flex-col items-center justify-end overflow-hidden bg-ink text-cream">
       <img
         src={coverImage}
         alt={title}
-        className="absolute inset-0 h-full w-full object-cover scale-[1.03]"
+        className="animate-slow-zoom absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="bg-linear-to-t from-ink via-ink/60 to-ink/10 absolute inset-0" />
+      <div aria-hidden="true" className="grain-overlay pointer-events-none absolute inset-0" />
+      <div
+        aria-hidden="true"
+        className="ambient-glow pointer-events-none absolute -left-12 top-16 h-52 w-52 rounded-full bg-gold/20 blur-3xl"
       />
 
-      <div className="absolute inset-0 bg-black/55" />
+      <div
+        className={`relative z-10 w-full px-6 pb-14 pt-24 text-center transition-opacity duration-500 sm:pb-20 ${
+          opening ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <div className="mx-auto max-w-md">
+          <Reveal>
+            <p className="text-[11px] uppercase tracking-[0.4em] text-cream/70">
+              {subtitle ?? "Te invito a celebrar"}
+            </p>
+          </Reveal>
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_55%)]" />
+          <Reveal delay={100}>
+            <h1 className="mt-5 font-display text-6xl italic leading-none sm:text-7xl">{title}</h1>
+          </Reveal>
 
-      <div className="relative z-10 mx-6 w-full max-w-2xl rounded-[2.5rem] border border-white/15 bg-white/10 px-8 py-14 text-center shadow-2xl backdrop-blur-md md:px-14">
-        {subtitle ? (
-          <p className="mb-5 text-[11px] uppercase tracking-[0.45em] text-white/75 md:text-xs">
-            {subtitle}
-          </p>
-        ) : null}
+          <Reveal delay={180}>
+            <p className="mt-5 text-xs uppercase tracking-[0.35em] text-gold-soft">
+              {formatDate(date)}
+            </p>
+          </Reveal>
 
-      
-
-        <h1 className="font-title mt-5 text-6xl leading-none md:text-8xl">
-          {title}
-        </h1>
-
-        <div className="mx-auto my-8 h-px w-28 bg-white/35" />
-
-        <p className="text-sm uppercase tracking-[0.3em] text-white/70 md:text-base">
-          {formatDate(date)}
-        </p>
-
-        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
-          Una invitación especial para compartir juntos un momento inolvidable.
-        </p>
-
-        <button
-          type="button"
-          onClick={onOpen}
-          className="mt-10 inline-flex items-center justify-center rounded-full border border-white/60 px-8 py-3 text-sm uppercase tracking-[0.28em] text-white transition duration-300 hover:bg-white hover:text-black"
-        >
-          Abrir invitación
-        </button>
+          <Reveal delay={260}>
+            <button
+              type="button"
+              onClick={handleOpen}
+              className="group mt-10 inline-flex items-center gap-3 rounded-full border border-cream/50 px-9 py-3.5 text-xs uppercase tracking-[0.3em] text-cream transition hover:border-gold hover:text-gold"
+            >
+              Abrir invitación
+              <span className="h-1.5 w-1.5 rounded-full bg-gold transition group-hover:scale-125" />
+            </button>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

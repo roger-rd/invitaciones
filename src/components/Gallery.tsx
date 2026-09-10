@@ -1,42 +1,67 @@
+import { useState } from "react";
+import { Camera } from "./icons";
+import Lightbox from "./Lightbox";
+import Reveal from "./Reveal";
+
 interface GalleryProps {
   images: string[];
   title?: string;
 }
 
-export default function Gallery({
-  images,
-  title = "Galería especial",
-}: GalleryProps) {
+export default function Gallery({ images, title = "Galería" }: GalleryProps) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  if (images.length === 0) return null;
+
   return (
-    <section className="bg-white px-6 py-20">
-      <div className="mx-auto max-w-6xl">
+    <section className="bg-cream px-6 py-24 sm:py-28">
+      <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.4em] text-rose-400">
-            Recuerdos
-          </p>
-          <h2 className="mt-4 text-3xl font-light md:text-5xl">{title}</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
-            Un vistazo a momentos llenos de alegría, cariño y emoción.
-          </p>
+          <Reveal>
+            <p className="flex items-center justify-center gap-2 text-xs uppercase tracking-[0.4em] text-ink/45">
+              <Camera className="h-4 w-4 text-gold" />
+              Galería
+            </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <h2 className="mt-4 font-display text-3xl italic text-ink sm:text-4xl">{title}</h2>
+          </Reveal>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 columns-2 gap-3 sm:gap-4 md:columns-3">
           {images.map((image, index) => (
-            <article
+            <Reveal
               key={`${image}-${index}`}
-              className="group overflow-hidden rounded-4xl bg-rose-50 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+              delay={(index % 6) * 60}
+              className="mb-3 break-inside-avoid sm:mb-4"
             >
-              <div className="overflow-hidden">
+              <button
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-label={`Ampliar fotografía ${index + 1}`}
+                className="group block w-full overflow-hidden rounded-2xl"
+              >
                 <img
                   src={image}
-                  alt={`Galería ${index + 1}`}
-                  className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
+                  alt={`${title} ${index + 1}`}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                 />
-              </div>
-            </article>
+              </button>
+            </Reveal>
           ))}
         </div>
       </div>
+
+      {activeIndex !== null ? (
+        <Lightbox
+          images={images}
+          index={activeIndex}
+          onClose={() => setActiveIndex(null)}
+          onNavigate={setActiveIndex}
+        />
+      ) : null}
     </section>
   );
 }

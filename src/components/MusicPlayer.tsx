@@ -1,70 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { Pause, Play } from "./icons";
 
 interface MusicPlayerProps {
-  src?: string;
+  playing: boolean;
+  onToggle: () => void;
 }
 
-export default function MusicPlayer({ src }: MusicPlayerProps) {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [playing, setPlaying] = useState(false);
-  const [blocked, setBlocked] = useState(false);
-
-  useEffect(() => {
-    if (!src) return;
-
-    const audio = new Audio(src);
-    audio.loop = true;
-    audio.volume = 0.45;
-
-    audioRef.current = audio;
-
-    const tryAutoplay = async () => {
-      try {
-        await audio.play();
-        setPlaying(true);
-        setBlocked(false);
-      } catch {
-        setPlaying(false);
-        setBlocked(true);
-      }
-    };
-
-    void tryAutoplay();
-
-    return () => {
-      audio.pause();
-      audioRef.current = null;
-    };
-  }, [src]);
-
-  const toggleMusic = async () => {
-    if (!audioRef.current) return;
-
-    if (playing) {
-      audioRef.current.pause();
-      setPlaying(false);
-      return;
-    }
-
-    try {
-      await audioRef.current.play();
-      setPlaying(true);
-      setBlocked(false);
-    } catch {
-      setPlaying(false);
-      setBlocked(true);
-    }
-  };
-
-  if (!src) return null;
-
+export default function MusicPlayer({ playing, onToggle }: MusicPlayerProps) {
   return (
     <button
       type="button"
-      onClick={() => void toggleMusic()}
-      className="fixed bottom-6 left-6 z-50 rounded-full bg-black/70 px-4 py-3 text-sm text-white shadow-lg backdrop-blur-md transition hover:scale-105"
+      onClick={onToggle}
+      aria-label={playing ? "Pausar música" : "Reproducir música"}
+      aria-pressed={playing}
+      className="fixed left-4 top-4 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-cream/25 bg-ink/60 text-cream backdrop-blur-md transition hover:border-gold/60 hover:text-gold sm:left-6 sm:top-6"
     >
-      {playing ? "⏸ Pausar" : blocked ? "▶ Activar" : "▶ Reproducir"}
+      {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
     </button>
   );
 }

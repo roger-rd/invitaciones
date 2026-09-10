@@ -1,6 +1,6 @@
-import Hero from "../components/Hero";
 import Countdown from "../components/Countdown";
 import Gallery from "../components/Gallery";
+import Hero from "../components/Hero";
 import Location from "../components/Location";
 import RSVP from "../components/RSVP";
 import type { EventData } from "../types/event";
@@ -9,17 +9,9 @@ interface WeddingTemplateProps {
   event: EventData;
 }
 
-  <audio autoPlay loop>
-      <source src="/music/wedding.mp3" type="audio/mpeg" />
-  </audio>
-
-export default function WeddingTemplate({
-  event,
-}: WeddingTemplateProps) {
+export default function WeddingTemplate({ event }: WeddingTemplateProps) {
   return (
-   
-
-    <main className="bg-white">
+    <main className="bg-cream text-ink">
       <Hero
         title={event.title}
         subtitle={event.subtitle}
@@ -28,7 +20,7 @@ export default function WeddingTemplate({
       />
 
       <Countdown targetDate={event.date} />
-      
+
       <Gallery images={event.gallery} title="Nuestros momentos" />
 
       <Location location={event.location} mapsUrl={event.mapsUrl} />

@@ -1,50 +1,39 @@
+import { MessageCircle } from "./icons";
+import Reveal from "./Reveal";
+
 interface RSVPProps {
   phone: string;
   title: string;
 }
 
 export default function RSVP({ phone, title }: RSVPProps) {
-  const message = encodeURIComponent(
-    `Hola, confirmo mi asistencia al evento: ${title}`
-  );
-
+  const message = encodeURIComponent(`Hola, confirmo mi asistencia al evento de ${title}`);
   const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
 
   return (
-    <section id="confirmacion" className="bg-rose-50 px-6 py-20">
-      <div className="mx-auto max-w-4xl rounded-4xl border border-rose-100 bg-white p-10 text-center shadow-sm">
-        <div className="text-4xl">💌</div>
-
-        <p className="mt-4 text-sm uppercase tracking-[0.4em] text-rose-400">
-          Confirmación
+    <section id="confirmacion" className="bg-sand px-6 py-24 text-center sm:py-28">
+      <Reveal>
+        <p className="text-xs uppercase tracking-[0.4em] text-ink/45">Confirmación</p>
+      </Reveal>
+      <Reveal delay={80}>
+        <h2 className="mt-5 font-display text-4xl italic text-ink sm:text-5xl">¿Nos acompañas?</h2>
+      </Reveal>
+      <Reveal delay={160}>
+        <p className="mx-auto mt-5 max-w-md text-base text-ink/70">
+          Confírmanos tu asistencia para reservarte un lugar en esta celebración.
         </p>
-
-        <h2 className="mt-4 text-3xl font-light md:text-4xl">
-          Confirma tu asistencia
-        </h2>
-
-        <p className="mt-4 text-lg text-gray-600">
-          Será un placer contar contigo en esta celebración tan especial.
-        </p>
-
+      </Reveal>
+      <Reveal delay={240}>
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noreferrer"
-          className="mt-8 inline-block rounded-full bg-green-500 px-8 py-4 font-medium text-white transition hover:bg-green-600"
+          className="mt-9 inline-flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-sm uppercase tracking-[0.2em] text-cream transition hover:bg-ink/85"
         >
+          <MessageCircle className="h-4 w-4" />
           Confirmar por WhatsApp
         </a>
-
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="fixed bottom-6 right-6 rounded-full bg-green-500 px-5 py-3 text-white shadow-lg transition hover:bg-green-600"
-        >
-          WhatsApp
-        </a>
-      </div>
+      </Reveal>
     </section>
   );
 }

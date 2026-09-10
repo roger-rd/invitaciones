@@ -1,6 +1,10 @@
+import { Calendar, Clock, MapPin } from "./icons";
+import Reveal from "./Reveal";
+
 interface EventDetailsProps {
   date: string;
   location: string;
+  mapsUrl: string;
 }
 
 function formatDate(date: string): string {
@@ -20,65 +24,64 @@ function formatTime(date: string): string {
   }).format(new Date(date));
 }
 
-interface DetailCardProps {
-  icon: string;
-  label: string;
-  value: string;
-}
-
-function DetailCard({ icon, label, value }: DetailCardProps) {
+export default function EventDetails({ date, location, mapsUrl }: EventDetailsProps) {
   return (
-    <div className="rounded-3xl bg-rose-50 p-6 text-center transition duration-300 hover:-translate-y-1 hover:shadow-md">
-      <div className="text-3xl">{icon}</div>
-      <p className="mt-4 text-xs uppercase tracking-[0.35em] text-rose-400">
-        {label}
-      </p>
-      <p className="mt-3 text-lg font-medium capitalize text-gray-700">
-        {value}
-      </p>
-    </div>
-  );
-}
+    <section className="relative overflow-hidden bg-ink px-6 py-24 text-cream sm:py-28">
+      <div
+        aria-hidden="true"
+        className="ambient-glow pointer-events-none absolute -left-16 top-0 h-64 w-64 rounded-full bg-gold/15 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="ambient-glow-delayed pointer-events-none absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-gold-soft/10 blur-3xl"
+      />
+      <div aria-hidden="true" className="grain-overlay pointer-events-none absolute inset-0" />
 
-export default function EventDetails({
-  date,
-  location,
-}: EventDetailsProps) {
-  return (
-    <section className="bg-rose-50 px-6 py-20">
-      <div className="mx-auto max-w-5xl rounded-4xl border border-rose-100 bg-white p-10 shadow-sm">
-        <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.4em] text-rose-400">
-            Datos del evento
-          </p>
-          <h2 className="mt-4 text-3xl font-light md:text-5xl">
-            Reserva este momento
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
-            Será una celebración pensada para disfrutar, compartir y crear
-            recuerdos inolvidables.
-          </p>
+      <div className="relative mx-auto max-w-3xl text-center">
+        <Reveal>
+          <p className="text-xs uppercase tracking-[0.4em] text-gold-soft">El gran día</p>
+        </Reveal>
+        <Reveal delay={80}>
+          <h2 className="mt-5 font-display text-4xl italic sm:text-5xl">Fecha, hora y lugar</h2>
+        </Reveal>
+
+        <div className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-6">
+          <Reveal delay={140}>
+            <div className="flex flex-col items-center gap-3">
+              <Calendar className="h-6 w-6 text-gold" />
+              <p className="text-[11px] uppercase tracking-[0.3em] text-cream/50">Fecha</p>
+              <p className="font-display text-lg italic capitalize text-cream/95">{formatDate(date)}</p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={220}>
+            <div className="flex flex-col items-center gap-3">
+              <Clock className="h-6 w-6 text-gold" />
+              <p className="text-[11px] uppercase tracking-[0.3em] text-cream/50">Hora</p>
+              <p className="font-display text-lg italic text-cream/95">{formatTime(date)} hrs</p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={300}>
+            <div className="flex flex-col items-center gap-3">
+              <MapPin className="h-6 w-6 text-gold" />
+              <p className="text-[11px] uppercase tracking-[0.3em] text-cream/50">Lugar</p>
+              <p className="font-display text-lg italic text-cream/95">{location}</p>
+            </div>
+          </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <DetailCard
-            icon="📅"
-            label="Fecha"
-            value={formatDate(date)}
-          />
-
-          <DetailCard
-            icon="⏰"
-            label="Hora"
-            value={formatTime(date)}
-          />
-
-          <DetailCard
-            icon="📍"
-            label="Lugar"
-            value={location}
-          />
-        </div>
+        <Reveal delay={360}>
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-12 inline-flex items-center gap-2 rounded-full border border-gold/40 px-7 py-3 text-xs uppercase tracking-[0.3em] text-gold-soft transition hover:border-gold hover:text-gold"
+          >
+            <MapPin className="h-4 w-4" />
+            Cómo llegar
+          </a>
+        </Reveal>
       </div>
     </section>
   );

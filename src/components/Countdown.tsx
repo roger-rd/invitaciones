@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Reveal from "./Reveal";
 
 interface CountdownProps {
   targetDate: string;
@@ -11,24 +12,8 @@ interface CountdownState {
   s: number;
 }
 
-interface CountdownItemProps {
-  value: number;
-  label: string;
-}
-
-function CountdownItem({ value, label }: CountdownItemProps) {
-  return (
-    <div className="flex flex-col items-center">
-      <span className="text-5xl font-light md:text-6xl">{value}</span>
-      <span className="mt-2 text-xs uppercase tracking-widest text-gray-400">
-        {label}
-      </span>
-    </div>
-  );
-}
-
 function calculateTimeLeft(targetDate: string): CountdownState {
-  const diff = new Date(targetDate).getTime() - new Date().getTime();
+  const diff = new Date(targetDate).getTime() - Date.now();
 
   if (diff <= 0) {
     return { d: 0, h: 0, m: 0, s: 0 };
@@ -42,10 +27,15 @@ function calculateTimeLeft(targetDate: string): CountdownState {
   };
 }
 
+const units: { key: keyof CountdownState; label: string }[] = [
+  { key: "d", label: "Días" },
+  { key: "h", label: "Horas" },
+  { key: "m", label: "Min" },
+  { key: "s", label: "Seg" },
+];
+
 export default function Countdown({ targetDate }: CountdownProps) {
-  const [time, setTime] = useState<CountdownState>(
-    calculateTimeLeft(targetDate)
-  );
+  const [time, setTime] = useState<CountdownState>(() => calculateTimeLeft(targetDate));
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -56,17 +46,30 @@ export default function Countdown({ targetDate }: CountdownProps) {
   }, [targetDate]);
 
   return (
-    <section id="countdown" className="bg-white py-20 text-center">
-      <h2 className="text-2xl uppercase tracking-widest text-gray-500">
-        Falta
-      </h2>
+    <section id="countdown" className="bg-cream px-6 py-20 text-center sm:py-24">
+      <Reveal>
+        <p className="text-xs uppercase tracking-[0.4em] text-ink/45">Cuenta regresiva</p>
+      </Reveal>
 
-      <div className="mt-10 flex flex-wrap justify-center gap-8">
-        <CountdownItem value={time.d} label="Días" />
-        <CountdownItem value={time.h} label="Horas" />
-        <CountdownItem value={time.m} label="Minutos" />
-        <CountdownItem value={time.s} label="Segundos" />
-      </div>
+      <Reveal delay={100}>
+        <div className="mx-auto mt-8 flex max-w-sm items-start justify-center gap-4 sm:max-w-md sm:gap-8">
+          {units.map((unit, index) => (
+            <div key={unit.key} className="flex items-start gap-4 sm:gap-8">
+              <div className="flex flex-col items-center">
+                <span className="font-display tabular-nums text-4xl italic text-ink sm:text-6xl">
+                  {String(time[unit.key]).padStart(2, "0")}
+                </span>
+                <span className="mt-2 text-[10px] uppercase tracking-[0.3em] text-ink/40 sm:text-xs">
+                  {unit.label}
+                </span>
+              </div>
+              {index < units.length - 1 ? (
+                <span className="mt-1 font-display text-3xl italic text-gold/70 sm:text-5xl">·</span>
+              ) : null}
+            </div>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }

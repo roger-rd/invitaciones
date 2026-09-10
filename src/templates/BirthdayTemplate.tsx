@@ -1,22 +1,30 @@
 import { useState } from "react";
-import Hero from "../components/Hero";
+import Closing from "../components/Closing";
 import Countdown from "../components/Countdown";
-import Gallery from "../components/Gallery";
-import Location from "../components/Location";
-import RSVP from "../components/RSVP";
-import InvitationIntro from "../components/InvitationIntro";
 import EventDetails from "../components/EventDetails";
-import type { EventData } from "../types/event";
+import FloatingWhatsApp from "../components/FloatingWhatsApp";
+import Gallery from "../components/Gallery";
+import Hero from "../components/Hero";
+import InvitationIntro from "../components/InvitationIntro";
 import MusicPlayer from "../components/MusicPlayer";
+import RSVP from "../components/RSVP";
+import { useBackgroundMusic } from "../hooks/useBackgroundMusic";
+import type { EventData } from "../types/event";
 
 interface BirthdayTemplateProps {
   event: EventData;
 }
 
-export default function BirthdayTemplate({
-  event,
-}: BirthdayTemplateProps) {
+export default function BirthdayTemplate({ event }: BirthdayTemplateProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { playing, play, toggle, hasMusic } = useBackgroundMusic(event.music);
+
+  const handleOpen = () => {
+    // play() se llama de forma síncrona dentro del gesto de click,
+    // antes del setTimeout, para cumplir con las políticas de autoplay.
+    play();
+    window.setTimeout(() => setIsOpen(true), 480);
+  };
 
   if (!isOpen) {
     return (
@@ -25,14 +33,19 @@ export default function BirthdayTemplate({
         subtitle={event.subtitle}
         coverImage={event.coverImage}
         date={event.date}
-        onOpen={() => setIsOpen(true)}
+        onOpen={handleOpen}
       />
     );
   }
 
   return (
-    <main className="bg-white text-gray-800">
-      <MusicPlayer src={event.music} />
+    <main className="animate-fade-in bg-cream text-ink">
+      {hasMusic ? <MusicPlayer playing={playing} onToggle={toggle} /> : null}
+      <FloatingWhatsApp
+        phone={event.whatsapp}
+        message={`Hola, quiero saber más sobre la celebración de ${event.title}`}
+      />
+
       <Hero
         title={event.title}
         subtitle={event.subtitle}
@@ -40,43 +53,18 @@ export default function BirthdayTemplate({
         message={event.message}
       />
 
-      <section className="bg-rose-50 px-6 py-20 text-center">
-        <div className="mx-auto max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.4em] text-rose-400">
-            Una fecha muy especial
-          </p>
-          <h2 className="mt-4 text-3xl font-light leading-relaxed md:text-5xl">
-            {event.eventPhrase ??
-              "Quiero compartir contigo este momento tan especial"}
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-500">
-            Prepárate para una celebración llena de alegría, cariño y momentos
-            que quedarán para siempre en el corazón.
-          </p>
-        </div>
-      </section>
-
-
-
       <Countdown targetDate={event.date} />
 
+      <EventDetails date={event.date} location={event.location} mapsUrl={event.mapsUrl} />
 
-      <EventDetails date={event.date} location={event.location} />
-
-
-      <Gallery images={event.gallery} title="Galería de recuerdos" />
-
-
-      <Location location={event.location} mapsUrl={event.mapsUrl} />
-
-
+      <Gallery images={event.gallery} title="Momentos para recordar" />
 
       <RSVP phone={event.whatsapp} title={event.title} />
 
-      <footer className="bg-white px-6 py-12 text-center">
-        <p className="text-sm uppercase tracking-[0.25em] text-gray-400">
-          Hecho con amor para una celebración inolvidable
-        </p>
+      <Closing title={event.title} coverImage={event.coverImage} phrase={event.eventPhrase} />
+
+      <footer className="bg-ink px-6 py-10 text-center">
+        <p className="text-[11px] uppercase tracking-[0.35em] text-cream/50">RDRP Te Invito</p>
       </footer>
     </main>
   );

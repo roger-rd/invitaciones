@@ -1,3 +1,6 @@
+import { MapPin } from "./icons";
+import Reveal from "./Reveal";
+
 interface LocationProps {
   location: string;
   mapsUrl: string;
@@ -5,30 +8,27 @@ interface LocationProps {
 
 export default function Location({ location, mapsUrl }: LocationProps) {
   return (
-    <section className="bg-white px-6 py-20">
-      <div className="mx-auto max-w-4xl rounded-4xl border border-rose-100 bg-rose-50/70 p-10 text-center shadow-sm">
-        <div className="text-4xl">📍</div>
-
-        <p className="mt-4 text-sm uppercase tracking-[0.4em] text-rose-400">
-          Ubicación
-        </p>
-
-        <h2 className="mt-4 text-3xl font-light md:text-4xl">{location}</h2>
-
-        <p className="mt-4 text-lg text-gray-600">
-          Te espero para compartir una tarde inolvidable llena de alegría y
-          celebración.
-        </p>
-
+    <section className="bg-sand px-6 py-24 text-center sm:py-28">
+      <Reveal>
+        <MapPin className="mx-auto h-7 w-7 text-gold" />
+      </Reveal>
+      <Reveal delay={80}>
+        <p className="mt-5 text-xs uppercase tracking-[0.4em] text-ink/45">Ubicación</p>
+      </Reveal>
+      <Reveal delay={140}>
+        <h2 className="mt-4 font-display text-3xl italic text-ink sm:text-4xl">{location}</h2>
+      </Reveal>
+      <Reveal delay={220}>
         <a
           href={mapsUrl}
           target="_blank"
           rel="noreferrer"
-          className="mt-8 inline-block rounded-full bg-rose-500 px-8 py-4 font-medium text-white transition hover:bg-rose-600"
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3 text-xs uppercase tracking-[0.3em] text-cream transition hover:bg-ink/85"
         >
+          <MapPin className="h-4 w-4" />
           Ver ubicación
         </a>
-      </div>
+      </Reveal>
     </section>
   );
 }
