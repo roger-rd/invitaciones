@@ -5,6 +5,8 @@ import WeddingTemplate from "../templates/WeddingTemplate";
 import QuinceTemplate from "../templates/QuinceTemplate";
 import BirthdayTemplate from "../templates/BirthdayTemplate";
 
+import KidsBirthdayTemplate from "../templates/KidsBirthdayTemplate";
+
 export default function InvitationPage() {
   const { slug } = useParams<{ slug: string }>();
 
@@ -33,6 +35,8 @@ export default function InvitationPage() {
   if (event.type === "quince") {
     return <QuinceTemplate event={event} />;
   }
+
+  if (event.type === "kids-birthday") return <KidsBirthdayTemplate event={event} />;
 
   return <BirthdayTemplate event={event} />;
 }

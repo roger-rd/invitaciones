@@ -104,3 +104,19 @@ export function Pause(props: IconProps) {
     </svg>
   );
 }
+
+export function Navigation(props: IconProps) {
+  return (
+    <svg {...strokeProps} {...props}>
+      <path d="m21 3-7 18-3-8-8-3L21 3Z" />
+    </svg>
+  );
+}
+
+export function Gift(props: IconProps) {
+  return (
+    <svg {...strokeProps} {...props}>
+      <path d="M4 11v10h16V11M12 7v14M3 7h18v4H3ZM12 7C4 7 5 1 8 3l4 4Zm0 0c8 0 7-6 4-4l-4 4Z" />
+    </svg>
+  );
+}
