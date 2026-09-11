@@ -63,9 +63,7 @@ export const events: EventData[] = [
     message: "Una tarde de música, risas y diversión te espera.",
     eventPhrase: "Gracias por ser parte de esta aventura. ¡Nos vemos bajo la carpa!",
     music: "/music/mateo-circo.mp3", // PENDIENTE: archivo de audio aún no existe
-    // characterWelcomeImage y characterCelebrationImage se dejan SIN DEFINIR a propósito:
-    // colocar aquí en el futuro, respectivamente:
-    //   "/images/theme-circus/character/bienvenida.webp"
-    //   "/images/theme-circus/character/celebracion.webp"
+    characterWelcomeImage: "/images/theme-circus/character/chispin-bienvenida.webp",
+    characterCelebrationImage: "/images/theme-circus/character/chispin-celebracion.webp",
   }
 ];

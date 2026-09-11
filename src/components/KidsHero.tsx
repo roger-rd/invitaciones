@@ -22,7 +22,7 @@ export default function KidsHero({ title, age, phrase, characterWelcomeImage }: 
         </Reveal>
         <Reveal delay={120}>
           <div className="kids-stage">
-            {characterWelcomeImage && failedImage !== characterWelcomeImage ? <img src={characterWelcomeImage} alt="Nuestro amigo del circo te da la bienvenida" onError={() => setFailedImage(characterWelcomeImage)} className="relative z-10 h-96 w-full object-contain" /> : <div className="kids-stage-sign"><p className="text-sm uppercase tracking-widest">Bajo los reflectores</p><p className="mt-3 font-display-kids text-4xl">Personaje sorpresa</p><p className="mt-4 text-lg">La magia ya está en escena. ¡Solo faltas tú!</p></div>}
+            {characterWelcomeImage && failedImage !== characterWelcomeImage ? <img src={characterWelcomeImage} alt="Nuestro amigo del circo te da la bienvenida" onError={() => setFailedImage(characterWelcomeImage)} className="relative z-10 h-96 w-full object-contain lg:h-[36rem]" /> : <div className="kids-stage-sign"><p className="text-sm uppercase tracking-widest">Bajo los reflectores</p><p className="mt-3 font-display-kids text-4xl">Personaje sorpresa</p><p className="mt-4 text-lg">La magia ya está en escena. ¡Solo faltas tú!</p></div>}
           </div>
         </Reveal>
       </div>
