@@ -66,4 +66,35 @@ export const events: EventData[] = [
     characterWelcomeImage: "/images/theme-circus/character/chispin-bienvenida.webp",
     characterCelebrationImage: "/images/theme-circus/character/chispin-celebracion.webp",
   }
+  ,{
+    slug: "jose-david-rancho-dino",
+    type: "kids-birthday",
+    template: "dino-ranch",
+    title: "José David",
+    subtitle: "Una gran expedición prehistórica te espera",
+    age: 2,
+    date: "2027-01-23T00:00:00", // Fecha confirmada. Hora aún NO confirmada: ver timeConfirmed.
+    timeConfirmed: false, // PENDIENTE: reemplazar por la hora real y quitar este campo (o ponerlo en true) cuando se confirme.
+    location: "Caletera Oriente General San Martín 20650",
+    mapsUrl: "", // PENDIENTE: no inventar. Vacío intencionalmente hasta tener el enlace real de Google Maps. Los componentes deben ocultar el botón de Maps cuando este valor esté vacío.
+    // wazeUrl: PENDIENTE — se omite intencionalmente hasta tener el enlace real. No agregar este campo todavía.
+    whatsapp: "56977979094",
+    coverImage: "/images/jose-david-rancho-dino/gallery/jose-david-bienvenida.webp",
+    gallery: [
+      "/images/jose-david-rancho-dino/gallery/jose-david-bienvenida.webp",
+      "/images/jose-david-rancho-dino/gallery/jose-david-primeros-pasitos.webp",
+      "/images/jose-david-rancho-dino/gallery/jose-david-recuerdos.webp",
+    ],
+    message: "José David cumple 2 años y quiere que lo acompañes en la aventura más grande del valle: un día entero explorando el rancho junto a sus amigos dinosaurios.",
+    eventPhrase: "Gracias por ser parte de esta gran expedición. ¡Nos vemos en el Rancho Jurásico!",
+    revealMessage: "¡El huevo ha eclosionado! Nuestro pequeño amigo dinosaurio ya está listo para conocerte y celebrar junto a José David.",
+    giftMessage: "Lo más importante es que vengas a celebrar conmigo. Si deseas traerme un regalito, me encantan los juegos dinámicos apropiados para mi edad y la ropa talla 24 meses.",
+    giftItems: ["Juegos dinámicos para 2 años", "Ropa talla 24 meses"],
+    // music: PENDIENTE — no agregar archivo de audio ni inventar ruta. Se omite intencionalmente; el reproductor debe permanecer oculto cuando no hay música.
+    dinoRanch: {
+      ranchName: "El Rancho Jurásico de José David",
+      // mainCharacterImage, friendCharacterImage, hatchlingImage, guideCharacterImage, closingCharacterImage:
+      // PENDIENTES — no inventar rutas ni generar ilustraciones. Se omiten intencionalmente hasta tener los assets definitivos.
+    },
+  }
 ];
