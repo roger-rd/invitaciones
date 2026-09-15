@@ -120,3 +120,12 @@ export function Gift(props: IconProps) {
     </svg>
   );
 }
+
+export function Smartphone(props: IconProps) {
+  return (
+    <svg {...strokeProps} {...props}>
+      <rect x="6" y="2" width="12" height="20" rx="2.5" />
+      <path d="M10 18.5h4" />
+    </svg>
+  );
+}

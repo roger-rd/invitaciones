@@ -1,9 +1,19 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import InvitationPage from "./pages/InvitationPage";
 
+const LandingPage = lazy(() => import("./pages/LandingPage"));
+const CategoryPage = lazy(() => import("./pages/CategoryPage"));
+
 export default function App() {
   return (
+    <Suspense fallback={<div role="status" className="min-h-screen bg-cream p-8 text-ink">Cargando…</div>}>
     <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/cumpleanos" element={<CategoryPage category="birthday" />} />
+      <Route path="/infantiles" element={<CategoryPage category="kids-birthday" />} />
+      <Route path="/quince-anos" element={<CategoryPage category="quince" />} />
+      <Route path="/matrimonios" element={<CategoryPage category="wedding" />} />
       <Route path="/:slug" element={<InvitationPage />} />
       <Route
         path="*"
@@ -19,5 +29,6 @@ export default function App() {
         }
       />
     </Routes>
+    </Suspense>
   );
 }
