@@ -388,3 +388,22 @@ body {
   .dino-button { transition: none; }
   .dino-button:hover, .dino-button:active { transform: none; }
 }
+
+/* Personajes provisionales del tema rancho de dinosaurios: animaciones aditivas, prefijo dino-. */
+.dino-hatchling { opacity: 0; transform: translate(-50%, 14px) scale(.72); transition: opacity 550ms ease, transform 550ms cubic-bezier(.34, 1.56, .64, 1); }
+.dino-hatchling-visible { opacity: 1; transform: translate(-50%, 0) scale(1); }
+
+@keyframes dino-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes dino-sway-gentle { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
+@keyframes dino-peek-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes dino-wave-farewell { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-6px) rotate(-2deg); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .dino-character-float { animation: dino-bob 4.5s ease-in-out infinite; }
+  .dino-character-sway { animation: dino-sway-gentle 5.5s ease-in-out infinite; }
+  .dino-character-peek { animation: dino-peek-in 900ms cubic-bezier(.16, 1, .3, 1) both; }
+  .dino-character-farewell { animation: dino-wave-farewell 3.6s ease-in-out infinite; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dino-hatchling { transition: opacity 350ms ease; transform: translate(-50%, 0) scale(1); }
+}

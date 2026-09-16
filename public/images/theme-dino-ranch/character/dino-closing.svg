@@ -1,0 +1,94 @@
+<svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bodyShadeC" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#FBC17E"/>
+      <stop offset="100%" stop-color="#EE9E4E"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="160" cy="322" rx="70" ry="13" fill="#000000" opacity=".14"/>
+
+  <!-- tail, swept to one side as if mid-step -->
+  <path d="M192 236 C 224 226, 240 236, 238 254 C 236 266, 220 266, 208 258 C 198 250, 192 244, 188 238 Z"
+        fill="url(#bodyShadeC)" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- legs, mid-stride -->
+  <g stroke="#5C3A21" stroke-width="4" stroke-linejoin="round">
+    <rect x="122" y="264" width="28" height="42" rx="14" fill="url(#bodyShadeC)" transform="rotate(-6 136 285)"/>
+    <rect x="166" y="268" width="28" height="42" rx="14" fill="url(#bodyShadeC)" transform="rotate(8 180 289)"/>
+    <ellipse cx="132" cy="312" rx="21" ry="10" fill="#EE9E4E"/>
+    <ellipse cx="184" cy="315" rx="21" ry="10" fill="#EE9E4E"/>
+  </g>
+  <g fill="#EE9E4E" stroke="#5C3A21" stroke-width="2.5">
+    <circle cx="117" cy="315" r="4.5"/><circle cx="132" cy="319" r="4.5"/><circle cx="147" cy="315" r="4.5"/>
+    <circle cx="169" cy="318" r="4.5"/><circle cx="184" cy="322" r="4.5"/><circle cx="199" cy="318" r="4.5"/>
+  </g>
+
+  <!-- left arm raised too, big two-handed goodbye -->
+  <path d="M118 192 C 98 182, 86 162, 92 144 C 95 136, 106 137, 108 145 C 104 159, 110 174, 124 184 Z"
+        fill="url(#bodyShadeC)" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+  <g fill="url(#bodyShadeC)" stroke="#5C3A21" stroke-width="2.5">
+    <circle cx="90" cy="134" r="6.5"/><circle cx="79" cy="140" r="6.5"/><circle cx="73" cy="151" r="6.5"/>
+  </g>
+
+  <!-- body -->
+  <rect x="112" y="166" width="96" height="104" rx="48" fill="url(#bodyShadeC)" stroke="#5C3A21" stroke-width="4"/>
+  <rect x="130" y="192" width="60" height="68" rx="30" fill="#FFF3DC"/>
+  <g fill="#D9793B" opacity=".55">
+    <circle cx="146" cy="214" r="4"/>
+    <circle cx="174" cy="230" r="3.2"/>
+    <circle cx="150" cy="246" r="3.6"/>
+  </g>
+
+  <!-- right arm raised -->
+  <path d="M200 196 C 219 198, 235 190, 241 172 C 243 165, 236 160, 231 165 C 226 178, 215 186, 198 186 Z"
+        fill="url(#bodyShadeC)" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+  <g fill="url(#bodyShadeC)" stroke="#5C3A21" stroke-width="2.5">
+    <circle cx="239" cy="156" r="6.5"/><circle cx="251" cy="160" r="6.5"/><circle cx="257" cy="171" r="6.5"/>
+  </g>
+
+  <!-- bandana, tails flicked by evening breeze -->
+  <path d="M117 168 C 133 190, 187 190, 203 168 L 199 184 C 183 204, 137 204, 121 184 Z"
+        fill="#6FD6E8" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M155 196 L 130 218 L 158 214 Z" fill="#57C4DA" stroke="#5C3A21" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M169 196 L 192 212 L 163 212 Z" fill="#3FA9BE" stroke="#5C3A21" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="160" cy="192" r="8" fill="#3FA9BE" stroke="#5C3A21" stroke-width="3"/>
+
+  <!-- back spikes -->
+  <g fill="#E4572E" stroke="#5C3A21" stroke-width="3" stroke-linejoin="round">
+    <path d="M206 78 C 214 70, 224 72, 222 82 C 220 90, 208 90, 206 82 Z"/>
+    <path d="M214 96 C 224 90, 234 94, 230 104 C 226 112, 214 110, 214 102 Z"/>
+    <path d="M216 116 C 226 112, 236 118, 230 128 C 226 134, 214 132, 214 124 Z"/>
+  </g>
+
+  <!-- head -->
+  <circle cx="160" cy="116" r="68" fill="url(#bodyShadeC)" stroke="#5C3A21" stroke-width="4"/>
+  <ellipse cx="160" cy="148" rx="44" ry="32" fill="#FFF3DC"/>
+
+  <g fill="#D9793B" opacity=".55">
+    <circle cx="122" cy="128" r="3.4"/><circle cx="132" cy="140" r="2.6"/>
+    <circle cx="198" cy="128" r="3.4"/><circle cx="188" cy="140" r="2.6"/>
+    <circle cx="160" cy="82" r="3"/>
+  </g>
+
+  <g fill="#5C3A21" opacity=".8">
+    <ellipse cx="150" cy="136" rx="3" ry="4"/>
+    <ellipse cx="170" cy="136" rx="3" ry="4"/>
+  </g>
+
+  <!-- big happy open mouth -->
+  <path d="M128 150 C 140 174, 180 174, 192 150 C 182 168, 138 168, 128 150 Z" fill="#7A3B2E"/>
+  <path d="M134 154 C 144 170, 176 170, 186 154 C 176 163, 144 163, 134 154 Z" fill="#FF9E8A"/>
+  <path d="M146 152 L 142 160 L 151 158 Z" fill="#FFFDF7"/>
+  <path d="M174 152 L 178 160 L 169 158 Z" fill="#FFFDF7"/>
+
+  <!-- happy closed eyes, joyful goodbye -->
+  <g fill="none" stroke="#5C3A21" stroke-width="5" stroke-linecap="round">
+    <path d="M114 108 C 122 96, 138 96, 146 108"/>
+    <path d="M174 108 C 182 96, 198 96, 206 108"/>
+  </g>
+  <g fill="#FFB37A" opacity=".7">
+    <circle cx="122" cy="122" r="7"/>
+    <circle cx="198" cy="122" r="7"/>
+  </g>
+</svg>

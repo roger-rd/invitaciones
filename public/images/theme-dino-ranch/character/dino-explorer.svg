@@ -1,0 +1,95 @@
+<svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bodyShade" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#FBC17E"/>
+      <stop offset="100%" stop-color="#EE9E4E"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="155" cy="322" rx="68" ry="13" fill="#000000" opacity=".14"/>
+
+  <!-- tail -->
+  <path d="M187 236 C 219 244, 239 232, 243 252 C 246 266, 229 270, 215 260 C 203 250, 193 246, 185 240 Z"
+        fill="url(#bodyShade)" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- legs -->
+  <g stroke="#5C3A21" stroke-width="4" stroke-linejoin="round">
+    <rect x="121" y="266" width="28" height="42" rx="14" fill="url(#bodyShade)"/>
+    <rect x="163" y="266" width="28" height="42" rx="14" fill="url(#bodyShade)"/>
+    <ellipse cx="135" cy="313" rx="21" ry="10" fill="#EE9E4E"/>
+    <ellipse cx="177" cy="313" rx="21" ry="10" fill="#EE9E4E"/>
+  </g>
+  <g fill="#EE9E4E" stroke="#5C3A21" stroke-width="2.5">
+    <circle cx="120" cy="316" r="4.5"/><circle cx="135" cy="320" r="4.5"/><circle cx="150" cy="316" r="4.5"/>
+    <circle cx="162" cy="316" r="4.5"/><circle cx="177" cy="320" r="4.5"/><circle cx="192" cy="316" r="4.5"/>
+  </g>
+
+  <!-- left resting arm -->
+  <path d="M119 196 C 101 208, 97 230, 109 246 C 115 252, 125 250, 127 242 C 121 228, 123 212, 131 200 Z"
+        fill="url(#bodyShade)" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- body -->
+  <rect x="107" y="166" width="96" height="104" rx="48" fill="url(#bodyShade)" stroke="#5C3A21" stroke-width="4"/>
+  <rect x="125" y="192" width="60" height="68" rx="30" fill="#FFF3DC"/>
+
+  <!-- belly spots -->
+  <g fill="#D9793B" opacity=".55">
+    <circle cx="141" cy="214" r="4"/>
+    <circle cx="169" cy="230" r="3.2"/>
+    <circle cx="145" cy="246" r="3.6"/>
+  </g>
+
+  <!-- raised waving arm, kept clear of the head silhouette -->
+  <path d="M195 196 C 214 198, 230 190, 236 172 C 238 165, 231 160, 226 165 C 221 178, 210 186, 193 186 Z"
+        fill="url(#bodyShade)" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+  <g fill="url(#bodyShade)" stroke="#5C3A21" stroke-width="2.5">
+    <circle cx="234" cy="156" r="6.5"/><circle cx="246" cy="160" r="6.5"/><circle cx="252" cy="171" r="6.5"/>
+  </g>
+
+  <!-- bandana: wide neckerchief wrapping the collar, with a clear knot and hanging tails -->
+  <path d="M112 168 C 128 190, 182 190, 198 168 L 194 184 C 178 204, 132 204, 116 184 Z"
+        fill="#6FD6E8" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M150 196 L 132 226 L 154 214 Z" fill="#57C4DA" stroke="#5C3A21" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M164 196 L 178 220 L 158 212 Z" fill="#3FA9BE" stroke="#5C3A21" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="155" cy="192" r="8" fill="#3FA9BE" stroke="#5C3A21" stroke-width="3"/>
+
+  <!-- back spikes -->
+  <g fill="#E4572E" stroke="#5C3A21" stroke-width="3" stroke-linejoin="round">
+    <path d="M201 78 C 209 70, 219 72, 217 82 C 215 90, 203 90, 201 82 Z"/>
+    <path d="M209 96 C 219 90, 229 94, 225 104 C 221 112, 209 110, 209 102 Z"/>
+    <path d="M211 116 C 221 112, 231 118, 225 128 C 221 134, 209 132, 209 124 Z"/>
+  </g>
+
+  <!-- head -->
+  <circle cx="155" cy="116" r="68" fill="url(#bodyShade)" stroke="#5C3A21" stroke-width="4"/>
+  <ellipse cx="155" cy="148" rx="44" ry="32" fill="#FFF3DC"/>
+
+  <!-- freckles -->
+  <g fill="#D9793B" opacity=".55">
+    <circle cx="117" cy="128" r="3.4"/><circle cx="127" cy="140" r="2.6"/>
+    <circle cx="193" cy="128" r="3.4"/><circle cx="183" cy="140" r="2.6"/>
+    <circle cx="155" cy="82" r="3"/>
+  </g>
+
+  <!-- nostrils -->
+  <g fill="#5C3A21" opacity=".8">
+    <ellipse cx="145" cy="136" rx="3" ry="4"/>
+    <ellipse cx="165" cy="136" rx="3" ry="4"/>
+  </g>
+
+  <!-- mouth -->
+  <path d="M123 150 C 135 172, 175 172, 187 150 C 177 166, 133 166, 123 150 Z" fill="#7A3B2E"/>
+  <path d="M129 154 C 139 168, 171 168, 181 154 C 171 162, 139 162, 129 154 Z" fill="#FF9E8A"/>
+  <path d="M141 152 L 137 160 L 146 158 Z" fill="#FFFDF7"/>
+  <path d="M169 152 L 173 160 L 164 158 Z" fill="#FFFDF7"/>
+
+  <!-- eyes -->
+  <g>
+    <circle cx="127" cy="106" r="20" fill="#FFFFFF" stroke="#5C3A21" stroke-width="3"/>
+    <circle cx="183" cy="106" r="20" fill="#FFFFFF" stroke="#5C3A21" stroke-width="3"/>
+    <circle cx="132" cy="110" r="11" fill="#3B2412"/>
+    <circle cx="188" cy="110" r="11" fill="#3B2412"/>
+    <circle cx="128" cy="104" r="3.6" fill="#FFFFFF"/>
+    <circle cx="184" cy="104" r="3.6" fill="#FFFFFF"/>
+  </g>
+</svg>

@@ -22,18 +22,18 @@ export default function DinoRanchTemplate({ event }: { event: EventData }) {
     window.setTimeout(() => setIsOpen(true), 800);
   };
   if (!isOpen) {
-    return <DinoIntro title={event.title} ranchName={event.dinoRanch?.ranchName} age={event.age} phrase={event.subtitle} onOpen={handleOpen} />;
+    return <DinoIntro title={event.title} ranchName={event.dinoRanch?.ranchName} age={event.age} phrase={event.subtitle} mainCharacterImage={event.dinoRanch?.mainCharacterImage} onOpen={handleOpen} />;
   }
 
   return (
     <main className="dino-invitation bg-dino-cream text-dino-earth">
       {hasMusic && <MusicPlayer playing={playing} onToggle={toggle} />}
       <FloatingWhatsApp phone={event.whatsapp} message={`Hola, quiero saber más sobre la celebración de ${event.title}`} />
-      <DinoHero title={event.title} age={event.age} phrase={event.message} mainCharacterImage={event.dinoRanch?.mainCharacterImage} />
+      <DinoHero title={event.title} age={event.age} phrase={event.message} mainCharacterImage={event.dinoRanch?.mainCharacterImage} friendCharacterImage={event.dinoRanch?.friendCharacterImage} />
       <DinoDivider from="#FFF8E7" to="#FFC93C" />
       <DinoCountdown targetDate={event.date} timeConfirmed={event.timeConfirmed} />
       <DinoDivider from="#FFC93C" to="#4C9A5B" />
-      <DinoEggReveal message={event.revealMessage} />
+      <DinoEggReveal message={event.revealMessage} hatchlingImage={event.dinoRanch?.hatchlingImage} />
       <DinoDivider from="#4C9A5B" to="#6FD6E8" />
       <DinoEventDetails date={event.date} location={event.location} mapsUrl={event.mapsUrl} wazeUrl={event.wazeUrl} timeConfirmed={event.timeConfirmed} />
       {event.gallery.length > 0 && (

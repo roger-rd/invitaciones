@@ -93,8 +93,12 @@ export const events: EventData[] = [
     // music: PENDIENTE — no agregar archivo de audio ni inventar ruta. Se omite intencionalmente; el reproductor debe permanecer oculto cuando no hay música.
     dinoRanch: {
       ranchName: "El Rancho Jurásico de José David",
-      // mainCharacterImage, friendCharacterImage, hatchlingImage, guideCharacterImage, closingCharacterImage:
-      // PENDIENTES — no inventar rutas ni generar ilustraciones. Se omiten intencionalmente hasta tener los assets definitivos.
+      // Personajes provisionales originales (SVG propios) y una imagen temporal de referencia
+      // para la eclosión, pendientes de sustituir por ilustraciones definitivas cambiando solo estas rutas.
+      mainCharacterImage: "/images/theme-dino-ranch/character/dino-explorer.svg",
+      friendCharacterImage: "/images/theme-dino-ranch/character/dino-triceratops.svg",
+      hatchlingImage: "/images/theme-dino-ranch/character/dino-hatchling-temp.webp", // PROVISIONAL: miniatura de referencia, pendiente de sustituir o autorizar
+      closingCharacterImage: "/images/theme-dino-ranch/character/dino-closing.svg",
     },
   }
 ];

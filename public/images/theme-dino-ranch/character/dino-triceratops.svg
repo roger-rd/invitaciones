@@ -1,0 +1,85 @@
+<svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="triBody" cx="35%" cy="28%" r="75%">
+      <stop offset="0%" stop-color="#9BD98A"/>
+      <stop offset="100%" stop-color="#79BE6A"/>
+    </radialGradient>
+    <radialGradient id="triFrill" cx="40%" cy="25%" r="80%">
+      <stop offset="0%" stop-color="#C7EEBB"/>
+      <stop offset="100%" stop-color="#6FB65F"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="150" cy="238" rx="82" ry="13" fill="#000000" opacity=".14"/>
+
+  <!-- tail peeking from behind -->
+  <path d="M214 178 C 236 182, 246 170, 242 158 C 239 150, 228 152, 224 160 C 222 168, 218 174, 210 178 Z"
+        fill="url(#triBody)" stroke="#5C3A21" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- sitting body -->
+  <path d="M76 210 C 66 150, 100 110, 150 110 C 200 110, 234 150, 224 210 Z"
+        fill="url(#triBody)" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M108 190 C 104 156, 122 132, 150 132 C 178 132, 196 156, 192 190 C 176 204, 124 204, 108 190 Z"
+        fill="#EAF7E1"/>
+
+  <!-- front paws -->
+  <g stroke="#5C3A21" stroke-width="3.5" stroke-linejoin="round">
+    <ellipse cx="112" cy="206" rx="20" ry="16" fill="url(#triBody)"/>
+    <ellipse cx="188" cy="206" rx="20" ry="16" fill="url(#triBody)"/>
+  </g>
+  <g fill="#79BE6A" stroke="#5C3A21" stroke-width="2.2">
+    <circle cx="100" cy="216" r="4"/><circle cx="112" cy="219" r="4"/><circle cx="124" cy="216" r="4"/>
+    <circle cx="176" cy="216" r="4"/><circle cx="188" cy="219" r="4"/><circle cx="200" cy="216" r="4"/>
+  </g>
+
+  <!-- frill (scalloped fan behind head, clearly separated from the head) -->
+  <path d="M150 40 C 96 34, 58 62, 58 104 C 58 130, 76 144, 98 142
+           C 92 130, 90 116, 96 102 C 84 100, 80 88, 90 80
+           C 86 68, 92 56, 108 52 C 104 44, 112 38, 150 40 Z"
+        fill="url(#triFrill)" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M150 40 C 204 34, 242 62, 242 104 C 242 130, 224 144, 202 142
+           C 208 130, 210 116, 204 102 C 216 100, 220 88, 210 80
+           C 214 68, 208 56, 192 52 C 196 44, 188 38, 150 40 Z"
+        fill="url(#triFrill)" stroke="#5C3A21" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M150 46 C 112 44, 82 68, 80 104" fill="none" stroke="#5C3A21" stroke-width="2" opacity=".35" stroke-linecap="round"/>
+  <path d="M150 46 C 188 44, 218 68, 220 104" fill="none" stroke="#5C3A21" stroke-width="2" opacity=".35" stroke-linecap="round"/>
+
+  <!-- head, tilted slightly for a curious look -->
+  <g transform="rotate(-7 150 100)">
+    <circle cx="150" cy="100" r="62" fill="url(#triBody)" stroke="#5C3A21" stroke-width="4"/>
+    <ellipse cx="150" cy="128" rx="38" ry="26" fill="#EAF7E1"/>
+
+    <!-- brow horns -->
+    <path d="M112 68 C 104 52, 108 36, 120 40 C 126 52, 124 62, 118 72 Z"
+          fill="#FFE7B0" stroke="#5C3A21" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M188 68 C 196 52, 192 36, 180 40 C 174 52, 176 62, 182 72 Z"
+          fill="#FFE7B0" stroke="#5C3A21" stroke-width="3" stroke-linejoin="round"/>
+    <!-- nose horn, sitting on the snout bridge above the mouth -->
+    <path d="M141 104 C 139 116, 141 126, 150 128 C 159 126, 161 116, 159 104 C 156 96, 144 96, 141 104 Z"
+          fill="#FFE7B0" stroke="#5C3A21" stroke-width="3" stroke-linejoin="round"/>
+
+    <!-- nostrils -->
+    <g fill="#5C3A21" opacity=".8">
+      <ellipse cx="140" cy="140" rx="2.6" ry="3.2"/>
+      <ellipse cx="160" cy="140" rx="2.6" ry="3.2"/>
+    </g>
+
+    <!-- curious closed smile -->
+    <path d="M128 148 C 138 158, 162 158, 172 148" fill="none" stroke="#5C3A21" stroke-width="3.4" stroke-linecap="round"/>
+
+    <!-- cheeks -->
+    <g fill="#F2A65A" opacity=".55">
+      <circle cx="116" cy="134" r="5.5"/>
+      <circle cx="184" cy="134" r="5.5"/>
+    </g>
+
+    <!-- eyes: big, curious, one brow raised -->
+    <circle cx="126" cy="92" r="18" fill="#FFFFFF" stroke="#5C3A21" stroke-width="3"/>
+    <circle cx="178" cy="90" r="18" fill="#FFFFFF" stroke="#5C3A21" stroke-width="3"/>
+    <circle cx="131" cy="96" r="10" fill="#3B2412"/>
+    <circle cx="183" cy="94" r="10" fill="#3B2412"/>
+    <circle cx="127" cy="90" r="3.2" fill="#FFFFFF"/>
+    <circle cx="179" cy="88" r="3.2" fill="#FFFFFF"/>
+    <path d="M168 70 C 174 66, 182 66, 186 70" fill="none" stroke="#5C3A21" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>
