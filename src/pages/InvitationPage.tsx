@@ -6,6 +6,7 @@ import QuinceTemplate from "../templates/QuinceTemplate";
 import BirthdayTemplate from "../templates/BirthdayTemplate";
 
 import KidsBirthdayTemplate from "../templates/KidsBirthdayTemplate";
+import DinoRanchTemplate from "../templates/DinoRanchTemplate";
 
 export default function InvitationPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -36,7 +37,10 @@ export default function InvitationPage() {
     return <QuinceTemplate event={event} />;
   }
 
-  if (event.type === "kids-birthday") return <KidsBirthdayTemplate event={event} />;
+  if (event.type === "kids-birthday") {
+    if (event.template === "dino-ranch") return <DinoRanchTemplate event={event} />;
+    return <KidsBirthdayTemplate event={event} />;
+  }
 
   return <BirthdayTemplate event={event} />;
 }
