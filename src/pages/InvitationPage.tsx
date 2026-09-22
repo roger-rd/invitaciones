@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { events } from "../data/events";
 import WeddingTemplate from "../templates/WeddingTemplate";
+import WeddingRomanticTemplate from "../templates/WeddingRomanticTemplate";
 import QuinceTemplate from "../templates/QuinceTemplate";
 import BirthdayTemplate from "../templates/BirthdayTemplate";
 
@@ -30,6 +31,7 @@ export default function InvitationPage() {
   }
 
   if (event.type === "wedding") {
+    if (event.template === "romantic-editorial") return <WeddingRomanticTemplate event={event} />;
     return <WeddingTemplate event={event} />;
   }
 

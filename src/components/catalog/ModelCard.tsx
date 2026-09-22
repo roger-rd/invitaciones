@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
-import type { CatalogModel } from "../../types/catalog";
+import type { CatalogModel, WeddingExperienceType } from "../../types/catalog";
 import { categories } from "../../data/categories";
+const experienceLabels: Record<WeddingExperienceType, string> = {
+  digital: "Digital",
+  interactive: "Interactiva",
+  video: "Video invitación",
+};
 export default function ModelCard({ model }: { model: CatalogModel }) {
   const category = categories.find((c) => c.id === model.category);
   const available = model.status === "available";
@@ -34,6 +39,7 @@ export default function ModelCard({ model }: { model: CatalogModel }) {
         <div className="flex flex-wrap gap-2 text-xs font-semibold">
           <span className="catalog-badge">{available ? "Disponible" : "Próximamente"}</span>
           {model.tag && <span className="catalog-badge capitalize">{model.tag}</span>}
+          {model.experienceType && <span className="catalog-badge">{experienceLabels[model.experienceType]}</span>}
         </div>
         <p className="landing-eyebrow mt-6">{category?.label}</p>
         <h3 className="mt-2 font-display text-3xl">{model.title}</h3>

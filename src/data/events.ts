@@ -1,6 +1,61 @@
 import type { EventData } from "../types/event";
+import { RDRP_WHATSAPP_NUMBER } from "../config/whatsapp";
 
 export const events: EventData[] = [
+  {
+    slug: "boda-romantica-editorial",
+    type: "wedding",
+    template: "romantic-editorial",
+    title: "Valentina & Nicolás", // NOMBRES PROVISIONALES — reemplazar cuando el cliente real confirme
+    subtitle: "¡Nos casamos!",
+    date: "2026-11-14T18:00:00-05:00", // FECHA PROVISIONAL
+    location: "Por confirmar",
+    mapsUrl: "",
+    whatsapp: RDRP_WHATSAPP_NUMBER,
+    coverImage: "", // Sin fotografía definitiva: resolver con composición editorial propia en una etapa posterior, nunca mostrar una imagen rota.
+    gallery: [], // Sin fotografías definitivas: ocultar la sección de Galería en una etapa posterior.
+    message: "Con el corazón lleno de alegría, los invitamos a celebrar el inicio de nuestra nueva vida juntos.", // PROVISIONAL
+    wedding: {
+      brideAndGroom: ["Valentina", "Nicolás"], // PROVISIONAL
+      monogram: "V & N", // PROVISIONAL
+      welcomeMessage: "Con el corazón lleno de alegría, los invitamos a celebrar el inicio de nuestra nueva vida juntos.", // PROVISIONAL
+      story: {
+        title: "Nuestra historia",
+        text: "Contenido provisional: aquí irá la historia real de la pareja cuando sea proporcionada.", // PROVISIONAL
+        photos: [],
+        hide: false,
+      },
+      ceremony: {
+        name: "Por confirmar",
+        address: "Por confirmar",
+        dateTimeIso: "2026-11-14T18:00:00-05:00", // PROVISIONAL
+        mapsUrl: "",
+      },
+      reception: {
+        name: "Por confirmar",
+        address: "Por confirmar",
+        dateTimeIso: "2026-11-14T20:00:00-05:00", // PROVISIONAL
+        mapsUrl: "",
+      },
+      itinerary: [
+        { label: "Ceremonia", time: "6:00 pm" },
+        { label: "Recepción", time: "8:00 pm" },
+      ], // PROVISIONAL
+      dressCode: {
+        formality: "Formal",
+        note: "Sugerencia provisional, a definir por la pareja.",
+      },
+      gifts: {
+        message: "Su compañía es el mejor regalo. Si desean tener un detalle con nosotros, aquí compartimos algunas opciones.", // PROVISIONAL, sin datos bancarios reales
+        hide: false,
+      },
+      rsvp: {
+        whatsappNumber: RDRP_WHATSAPP_NUMBER,
+        notes: "Por favor confirma antes de la fecha indicada.",
+      },
+      farewellMessage: "Gracias por ser parte de esta historia. ¡Los esperamos con todo el amor!", // PROVISIONAL
+    },
+  },
 
     {
       slug: "edinson",

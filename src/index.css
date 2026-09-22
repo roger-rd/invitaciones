@@ -407,3 +407,42 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .dino-hatchling { transition: opacity 350ms ease; transform: translate(-50%, 0) scale(1); }
 }
+
+/* Boda romántica editorial: paleta y decoración aisladas con prefijo romantic-. */
+@theme {
+  --color-romantic-ivory: #FAF6EF;
+  --color-romantic-cream: #FFFDF8;
+  --color-romantic-champagne: #E9DCC7;
+  --color-romantic-gold: #B3874C;
+  --color-romantic-sage: #7C8B6F;
+  --color-romantic-ink: #2B2620;
+  --font-display-romantic: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-accent-romantic: "Snell Roundhand", "Segoe Script", cursive;
+}
+
+@keyframes romantic-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(2px, -4px); }
+}
+
+@keyframes romantic-shimmer {
+  0%, 100% { opacity: .85; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .romantic-drift { animation: romantic-drift 24s ease-in-out infinite; }
+  .romantic-shimmer { animation: romantic-shimmer 18s ease-in-out infinite; }
+}
+
+.romantic-panel { position: absolute; top: 0; bottom: 0; width: 50.5%; background: linear-gradient(135deg, var(--color-romantic-cream), var(--color-romantic-ivory)); transition: transform 800ms cubic-bezier(.65, 0, .35, 1), opacity 800ms ease; }
+.romantic-panel-left { left: 0; border-right: 1px solid var(--color-romantic-champagne); }
+.romantic-panel-right { right: 0; border-left: 1px solid var(--color-romantic-champagne); }
+[data-open="true"] > .romantic-panel-left, [data-open="true"] .romantic-panel-left { transform: translateX(-101%); }
+[data-open="true"] > .romantic-panel-right, [data-open="true"] .romantic-panel-right { transform: translateX(101%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .romantic-drift, .romantic-shimmer { animation: none; }
+  .romantic-panel { transition: opacity 800ms ease; }
+  [data-open="true"] .romantic-panel-left, [data-open="true"] .romantic-panel-right { transform: none; opacity: 0; }
+}
