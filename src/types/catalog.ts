@@ -2,6 +2,7 @@ import type { EventType } from "./event";
 
 export type ModelStatus = "available" | "coming-soon";
 export type ModelTag = "nuevo" | "destacado" | "popular";
+export type WeddingExperienceType = "digital" | "interactive" | "video";
 
 export interface CategoryDefinition {
   id: EventType;
@@ -19,6 +20,7 @@ export interface CatalogModel {
   slug: string;
   title: string;
   category: EventType;
+  experienceType?: WeddingExperienceType;
   shortDescription: string;
   style?: string;
   coverImage?: string;
