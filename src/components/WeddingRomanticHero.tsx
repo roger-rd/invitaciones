@@ -1,10 +1,10 @@
 import { useState } from "react";
-import type { WeddingCoupleData } from "../types/event";
+import type { WeddingCoupleData, WeddingImage } from "../types/event";
 import RomanticDecor from "./RomanticDecor";
 
 interface WeddingRomanticHeroProps extends Pick<WeddingCoupleData, "brideAndGroom" | "monogram"> {
   date: string;
-  coverImage?: string;
+  heroImage?: WeddingImage;
   phrase?: string;
 }
 
@@ -19,9 +19,9 @@ function formatInEventZone(iso: string, options: Intl.DateTimeFormatOptions) {
   return new Intl.DateTimeFormat("es", { ...options, timeZone: "UTC" }).format(shifted);
 }
 
-export default function WeddingRomanticHero({ brideAndGroom, date, coverImage, phrase, monogram }: WeddingRomanticHeroProps) {
+export default function WeddingRomanticHero({ brideAndGroom, date, heroImage, phrase, monogram }: WeddingRomanticHeroProps) {
   const [failedImage, setFailedImage] = useState<string>();
-  const image = coverImage?.trim();
+  const image = heroImage?.src.trim();
   const hasPhoto = Boolean(image && image !== failedImage);
   const initials = monogram?.trim() || brideAndGroom.map((name) => Array.from(name.trim())[0] ?? "").join(" & ");
   const day = new Date(date);
@@ -31,28 +31,41 @@ export default function WeddingRomanticHero({ brideAndGroom, date, coverImage, p
     : "Fecha por confirmar";
 
   return (
-    <section aria-label="Nuestra boda" className="relative isolate min-h-svh overflow-hidden bg-romantic-ivory text-romantic-ink">
-      {hasPhoto ? (
-        <div className="absolute right-0 top-0 h-[30rem] w-full md:h-full md:w-2/3">
-          <img src={image} alt={`${brideAndGroom[0]} y ${brideAndGroom[1]}`} width={1200} height={1600} loading="eager" decoding="async" onError={() => setFailedImage(image)} className="h-full w-full object-cover" />
-          <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-romantic-ivory via-romantic-ivory/10 to-transparent md:bg-linear-to-r md:from-romantic-ivory md:via-romantic-ivory/30" />
-        </div>
+    <section aria-label="Nuestra boda" className="relative isolate flex min-h-svh items-end overflow-hidden bg-romantic-ivory text-romantic-ink">
+      {hasPhoto && heroImage ? (
+        <>
+          <div className="animate-slow-zoom absolute inset-0">
+            <img
+              src={image}
+              alt={heroImage.alt}
+              width={heroImage.width}
+              height={heroImage.height}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              onError={() => setFailedImage(image)}
+              style={{ objectPosition: heroImage.position ?? "center" }}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/55 to-black/10" />
+        </>
       ) : (
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-linear-to-br from-romantic-cream via-romantic-champagne to-romantic-ivory">
           <div className="romantic-drift absolute inset-x-[12%] top-[8%] h-[75%] rounded-t-full border border-romantic-gold/20 bg-radial from-romantic-cream/80 to-transparent" />
           <p className="romantic-shimmer absolute inset-x-4 top-14 text-center font-display-romantic text-[clamp(4rem,18vw,13rem)] italic leading-none text-romantic-gold/20 [overflow-wrap:anywhere]">{initials}</p>
         </div>
       )}
-      <RomanticDecor variant="hero" />
-      <div className={`relative z-10 mx-auto w-full max-w-7xl px-6 pb-28 sm:px-12 md:py-36 ${hasPhoto ? "pt-80" : "pt-52 text-center"}`}>
-        <div className={hasPhoto ? "max-w-xl md:w-[52%]" : "mx-auto max-w-3xl"}>
+      {!hasPhoto && <RomanticDecor variant="hero" />}
+      <div className={`relative z-10 mx-auto w-full max-w-7xl px-6 pb-32 sm:px-12 md:pb-40 ${hasPhoto ? "pt-[35svh] text-center text-white" : "pt-52 text-center"}`}>
+        <div className="mx-auto max-w-3xl">
           <p className="text-xs uppercase tracking-[.3em]">¡Nos casamos!</p>
           <h1 className="mt-8 font-accent-romantic text-[clamp(3rem,8vw,6.5rem)] leading-[1.2] [overflow-wrap:anywhere]">
             <span className="block">{brideAndGroom[0]}</span>
-            <span className="my-2 block font-display-romantic text-3xl italic text-romantic-gold">&amp;</span>
+            <span className="my-2 block font-display-romantic text-3xl italic">&amp;</span>
             <span className="block">{brideAndGroom[1]}</span>
           </h1>
-          <div aria-hidden="true" className={`my-8 h-px w-16 bg-romantic-gold/60 ${hasPhoto ? "" : "mx-auto"}`} />
+          <div aria-hidden="true" className={`mx-auto my-8 h-px w-16 ${hasPhoto ? "bg-white/60" : "bg-romantic-gold/60"}`} />
           <p className="font-display-romantic text-xl sm:text-2xl">
             {validDate ? <time dateTime={date}>{dateLabel}</time> : dateLabel}
           </p>

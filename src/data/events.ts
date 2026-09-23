@@ -6,54 +6,192 @@ export const events: EventData[] = [
     slug: "boda-romantica-editorial",
     type: "wedding",
     template: "romantic-editorial",
-    title: "Valentina & Nicolás", // NOMBRES PROVISIONALES — reemplazar cuando el cliente real confirme
+    title: "Valentina & Nicolás", // Pareja ficticia de demostración
     subtitle: "¡Nos casamos!",
-    date: "2026-11-14T18:00:00-05:00", // FECHA PROVISIONAL
-    location: "Por confirmar",
+    date: "2026-11-14T18:00:00-05:00",
+    location: "Villa Toscana",
     mapsUrl: "",
     whatsapp: RDRP_WHATSAPP_NUMBER,
-    coverImage: "", // Sin fotografía definitiva: resolver con composición editorial propia en una etapa posterior, nunca mostrar una imagen rota.
-    gallery: [], // Sin fotografías definitivas: ocultar la sección de Galería en una etapa posterior.
-    message: "Con el corazón lleno de alegría, los invitamos a celebrar el inicio de nuestra nueva vida juntos.", // PROVISIONAL
+    coverImage: "/images/boda-romantica-editorial/hero-vertical.webp",
+    gallery: [], // La galería editorial de esta plantilla usa wedding.galleryEditorial, no este campo compartido.
+    message: "El comienzo de una nueva historia, escrita a dos voces.",
     wedding: {
-      brideAndGroom: ["Valentina", "Nicolás"], // PROVISIONAL
-      monogram: "V & N", // PROVISIONAL
-      welcomeMessage: "Con el corazón lleno de alegría, los invitamos a celebrar el inicio de nuestra nueva vida juntos.", // PROVISIONAL
-      story: {
-        title: "Nuestra historia",
-        text: "Contenido provisional: aquí irá la historia real de la pareja cuando sea proporcionada.", // PROVISIONAL
-        photos: [],
-        hide: false,
+      brideAndGroom: ["Valentina", "Nicolás"],
+      monogram: "V & N",
+      welcomeMessage: "Con el corazón lleno de alegría, los invitamos a celebrar el inicio de nuestra nueva vida juntos.",
+      heroImage: {
+        src: "/images/boda-romantica-editorial/hero-vertical.webp",
+        alt: "Valentina y Nicolás abrazados al aire libre, luz cálida de atardecer",
+        orientation: "portrait",
+        width: 1122,
+        height: 1402,
       },
+      storyChapters: [
+        {
+          year: "2019",
+          title: "Cómo nos conocimos",
+          text: "Fue una tarde cualquiera que dejó de serlo en cuanto cruzamos las primeras palabras. Desde entonces, cada conversación se sintió como el inicio de algo que ya conocíamos.",
+          highlightQuote: "Algunas historias empiezan con un simple “hola”.",
+          photo: {
+            src: "/images/boda-romantica-editorial/historia-01-como-nos-conocimos.webp",
+            alt: "Valentina y Nicolás conversando y sonriendo en una terraza al atardecer",
+            orientation: "landscape",
+            width: 1536,
+            height: 1024,
+          },
+        },
+        {
+          year: "2021",
+          title: "Nuestra primera aventura",
+          text: "Aprendimos a descubrir el mundo —y a descubrirnos— entre caminos nuevos y planes improvisados. Cada viaje nos enseñó a elegirnos, una y otra vez.",
+          highlightQuote: "El mejor destino siempre fue el otro.",
+          photo: {
+            src: "/images/boda-romantica-editorial/historia-02-primera-aventura.webp",
+            alt: "Valentina y Nicolás caminando tomados de la mano por un sendero campestre",
+            orientation: "portrait",
+            width: 1122,
+            height: 1402,
+          },
+        },
+        {
+          year: "2023",
+          title: "La propuesta",
+          text: "Entre olivos y luz de atardecer, una pregunta cambió el rumbo de nuestra historia. La respuesta, por supuesto, ya la sabíamos los dos.",
+          highlightQuote: "Dijimos que sí antes de terminar la pregunta.",
+          photo: {
+            src: "/images/boda-romantica-editorial/historia-03-la-propuesta.webp",
+            alt: "Nicolás de rodillas proponiendo matrimonio a Valentina en un jardín",
+            orientation: "landscape",
+            width: 1536,
+            height: 1024,
+          },
+        },
+        {
+          year: "2026",
+          title: "Para siempre",
+          text: "Hoy emprendemos el capítulo que hemos soñado escribir juntos. Con ustedes a nuestro lado, esta historia apenas comienza.",
+          highlightQuote: "El resto de nuestra vida empieza hoy.",
+          photo: {
+            src: "/images/boda-romantica-editorial/historia-04-para-siempre.webp",
+            alt: "Valentina y Nicolás caminando juntos hacia el atardecer",
+            orientation: "portrait",
+            width: 1122,
+            height: 1402,
+          },
+        },
+      ],
+      featuredQuote: {
+        text: "El amor no se trata de encontrar a la persona perfecta, sino de construir juntos una historia perfectamente nuestra.",
+        attribution: "Valentina & Nicolás",
+        image: {
+          src: "/images/boda-romantica-editorial/frase-destacada.webp",
+          alt: "Manos entrelazadas de Valentina y Nicolás con anillos de compromiso, fondo cálido panorámico",
+          orientation: "panoramic",
+          width: 1672,
+          height: 941,
+        },
+      },
+      galleryEditorial: [
+        {
+          src: "/images/boda-romantica-editorial/hero-vertical.webp",
+          alt: "Valentina y Nicolás abrazados en un jardín, retrato editorial",
+          orientation: "portrait",
+          position: "center 20%",
+          featured: true,
+          width: 1122,
+          height: 1402,
+        },
+        {
+          src: "/images/boda-romantica-editorial/adicional-horizontal.webp",
+          alt: "Valentina y Nicolás bailando al aire libre durante el atardecer",
+          orientation: "landscape",
+          width: 1536,
+          height: 1024,
+        },
+        {
+          src: "/images/boda-romantica-editorial/adicional-vertical.webp",
+          alt: "Valentina y Nicolás abrazados bajo un arco de flores blancas",
+          orientation: "portrait",
+          width: 1122,
+          height: 1402,
+        },
+        {
+          src: "/images/boda-romantica-editorial/historia-01-como-nos-conocimos.webp",
+          alt: "Valentina y Nicolás compartiendo una mesa junto a velas encendidas",
+          orientation: "landscape",
+          position: "center 30%",
+          width: 1536,
+          height: 1024,
+        },
+        {
+          src: "/images/boda-romantica-editorial/historia-04-para-siempre.webp",
+          alt: "Valentina y Nicolás caminando de la mano por un camino de piedra",
+          orientation: "portrait",
+          position: "center 15%",
+          width: 1122,
+          height: 1402,
+        },
+        {
+          src: "/images/boda-romantica-editorial/frase-destacada.webp",
+          alt: "Detalle de las manos entrelazadas de Valentina y Nicolás con sus anillos",
+          orientation: "panoramic",
+          position: "center 60%",
+          width: 1672,
+          height: 941,
+        },
+        {
+          src: "/images/boda-romantica-editorial/catalogo-portada.webp",
+          alt: "Retrato de Valentina y Nicolás sonriendo frente al paisaje toscano",
+          orientation: "landscape",
+          position: "center 40%",
+          width: 1536,
+          height: 1024,
+        },
+      ],
       ceremony: {
-        name: "Por confirmar",
-        address: "Por confirmar",
-        dateTimeIso: "2026-11-14T18:00:00-05:00", // PROVISIONAL
+        name: "Villa Toscana",
+        address: "Camino de los Olivos s/n",
+        dateTimeIso: "2026-11-14T18:00:00-05:00",
         mapsUrl: "",
       },
       reception: {
-        name: "Por confirmar",
-        address: "Por confirmar",
-        dateTimeIso: "2026-11-14T20:00:00-05:00", // PROVISIONAL
+        name: "Jardines de Villa Toscana",
+        address: "Camino de los Olivos s/n",
+        dateTimeIso: "2026-11-14T20:00:00-05:00",
         mapsUrl: "",
       },
       itinerary: [
+        { label: "Llegada de invitados", time: "4:00 pm" },
         { label: "Ceremonia", time: "6:00 pm" },
+        { label: "Cóctel de bienvenida", time: "6:30 pm" },
         { label: "Recepción", time: "8:00 pm" },
-      ], // PROVISIONAL
+        { label: "Cena", time: "8:30 pm" },
+        { label: "Primer baile", time: "9:30 pm" },
+        { label: "Fiesta", time: "10:00 pm" },
+      ],
       dressCode: {
         formality: "Formal",
-        note: "Sugerencia provisional, a definir por la pareja.",
+        palette: ["Champagne", "Marfil", "Verde salvia"],
+        avoidColors: ["Blanco (reservado para la novia)"],
+        note: "Sugerimos tonos champagne, marfil y verde salvia para acompañar la paleta de la celebración.",
       },
       gifts: {
-        message: "Su compañía es el mejor regalo. Si desean tener un detalle con nosotros, aquí compartimos algunas opciones.", // PROVISIONAL, sin datos bancarios reales
+        message: "Su presencia es el regalo más importante para nosotros. Si desean tener un detalle adicional, con cariño hemos preparado algunas opciones.",
         hide: false,
       },
       rsvp: {
         whatsappNumber: RDRP_WHATSAPP_NUMBER,
-        notes: "Por favor confirma antes de la fecha indicada.",
+        deadline: "2026-10-15",
+        notes: "Confirma tu asistencia y celebra este día con nosotros.",
       },
-      farewellMessage: "Gracias por ser parte de esta historia. ¡Los esperamos con todo el amor!", // PROVISIONAL
+      closingImage: {
+        src: "/images/boda-romantica-editorial/cierre.webp",
+        alt: "Valentina y Nicolás alejándose tomados de la mano al atardecer",
+        orientation: "portrait",
+        width: 1122,
+        height: 1402,
+      },
+      farewellMessage: "Gracias por ser parte de esta historia. Hoy comienza un “para siempre” que soñamos compartir con ustedes.",
     },
   },
 
