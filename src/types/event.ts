@@ -49,11 +49,42 @@ export interface WeddingRsvpData {
   notes?: string;
 }
 
+export interface WeddingImage {
+  src: string;
+  alt: string;
+  orientation: "portrait" | "landscape" | "panoramic";
+  /** Valor CSS object-position, ej. "center 30%". Por defecto "center" si se omite. */
+  position?: string;
+  /** Marca la fotografía protagonista dentro de una colección (ej. la destacada de la galería). */
+  featured?: boolean;
+  width: number;
+  height: number;
+}
+
+export interface WeddingStoryChapter {
+  year?: string;
+  title: string;
+  text: string;
+  photo?: WeddingImage;
+  highlightQuote?: string;
+}
+
+export interface WeddingFeaturedQuoteData {
+  text: string;
+  attribution?: string;
+  image: WeddingImage;
+}
+
 export interface WeddingCoupleData {
   brideAndGroom: [string, string];
   monogram?: string;
   welcomeMessage?: string;
   story?: WeddingStoryData;
+  heroImage?: WeddingImage;
+  closingImage?: WeddingImage;
+  featuredQuote?: WeddingFeaturedQuoteData;
+  storyChapters?: WeddingStoryChapter[];
+  galleryEditorial?: WeddingImage[];
   ceremony?: WeddingVenue;
   reception?: WeddingVenue;
   itinerary?: WeddingItineraryItem[];

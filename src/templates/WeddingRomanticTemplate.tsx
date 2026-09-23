@@ -5,8 +5,9 @@ import WeddingRomanticIntro from "../components/WeddingRomanticIntro";
 import WeddingRomanticHero from "../components/WeddingRomanticHero";
 import WeddingWelcome from "../components/WeddingWelcome";
 import WeddingCountdown from "../components/WeddingCountdown";
-import WeddingStory from "../components/WeddingStory";
-import WeddingGallerySection from "../components/WeddingGallerySection";
+import WeddingStoryChapters from "../components/WeddingStoryChapters";
+import WeddingFeaturedQuote from "../components/WeddingFeaturedQuote";
+import WeddingGalleryEditorial from "../components/WeddingGalleryEditorial";
 import WeddingSchedule from "../components/WeddingSchedule";
 import WeddingCeremonyReception from "../components/WeddingCeremonyReception";
 import WeddingItinerary from "../components/WeddingItinerary";
@@ -36,11 +37,12 @@ export default function WeddingRomanticTemplate({ event }: { event: EventData })
     <main className="bg-romantic-ivory text-romantic-ink">
       {hasMusic && <MusicPlayer playing={playing} onToggle={toggle} />}
       <FloatingWhatsApp phone={event.whatsapp} message={`Hola, quiero saber más sobre la boda de ${brideAndGroom[0]} y ${brideAndGroom[1]}`} />
-      <WeddingRomanticHero brideAndGroom={brideAndGroom} date={event.date} coverImage={event.coverImage} phrase={event.message} monogram={wedding.monogram} />
+      <WeddingRomanticHero brideAndGroom={brideAndGroom} date={event.date} heroImage={wedding.heroImage} phrase={event.message} monogram={wedding.monogram} />
       <WeddingWelcome welcomeMessage={wedding.welcomeMessage} />
       <WeddingCountdown targetDate={event.date} />
-      <WeddingStory {...(wedding.story ?? {})} />
-      <WeddingGallerySection images={event.gallery} />
+      <WeddingStoryChapters chapters={wedding.storyChapters} />
+      <WeddingFeaturedQuote quote={wedding.featuredQuote} />
+      <WeddingGalleryEditorial images={wedding.galleryEditorial} />
       <WeddingSchedule date={event.date} />
       <WeddingCeremonyReception ceremony={wedding.ceremony} reception={wedding.reception} />
       <WeddingItinerary items={wedding.itinerary} />
@@ -59,7 +61,7 @@ export default function WeddingRomanticTemplate({ event }: { event: EventData })
         </div>
       </section>
       <WeddingRSVP whatsappNumber={wedding.rsvp?.whatsappNumber ?? event.whatsapp} brideAndGroom={brideAndGroom} deadline={wedding.rsvp?.deadline} notes={wedding.rsvp?.notes} />
-      <WeddingClosing farewellMessage={wedding.farewellMessage} brideAndGroom={brideAndGroom} />
+      <WeddingClosing farewellMessage={wedding.farewellMessage} brideAndGroom={brideAndGroom} closingImage={wedding.closingImage} />
       <footer className="bg-romantic-ink px-6 py-8 text-center text-romantic-cream"><p className="text-sm tracking-widest">RDRP Te Invito</p></footer>
     </main>
   );

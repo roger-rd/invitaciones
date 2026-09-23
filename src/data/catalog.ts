@@ -44,7 +44,7 @@ export const catalogModels: CatalogModel[] = [
     shortDescription: "Una experiencia editorial, romántica y elegante para anunciar el comienzo de una nueva historia.",
     style: "Editorial romántico",
     demoPath: "/boda-romantica-editorial",
-    visualTreatment: "gradient",
+    coverImage: "/images/boda-romantica-editorial/catalogo-portada.webp",
     features: ["Apertura interactiva", "Historia de la pareja", "Cuenta regresiva", "Ceremonia y recepción", "Itinerario", "Confirmación por WhatsApp"],
     status: "available",
     tag: "nuevo",
