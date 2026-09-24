@@ -4,6 +4,7 @@ interface WeddingCalendarButtonProps {
   location?: string;
   startIso: string;
   endIso?: string;
+  buttonClassName?: string;
 }
 
 function utcStamp(date: Date) {
@@ -31,7 +32,7 @@ function foldCalendarLine(line: string) {
   return result;
 }
 
-export default function WeddingCalendarButton({ title, description, location, startIso, endIso }: WeddingCalendarButtonProps) {
+export default function WeddingCalendarButton({ title, description, location, startIso, endIso, buttonClassName }: WeddingCalendarButtonProps) {
   const start = new Date(startIso);
   if (!Number.isFinite(start.getTime())) return null;
   // Sin hora final explícita, se reservan tres horas desde el inicio.
@@ -65,7 +66,7 @@ export default function WeddingCalendarButton({ title, description, location, st
     }
   }
 
-  const buttonClass = "inline-flex min-h-12 max-w-full cursor-pointer items-center justify-center rounded-full border border-romantic-gold/50 bg-romantic-cream px-6 py-3 text-sm text-romantic-ink hover:bg-romantic-champagne/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-romantic-ink";
+  const buttonClass = buttonClassName ?? "inline-flex min-h-12 max-w-full cursor-pointer items-center justify-center rounded-full border border-romantic-gold/50 bg-romantic-cream px-6 py-3 text-sm text-romantic-ink hover:bg-romantic-champagne/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-romantic-ink";
   return (
     <div role="group" aria-label="Guardar la fecha en tu calendario" className="flex flex-wrap justify-center gap-3">
       <a href={googleUrl} target="_blank" rel="noreferrer" className={buttonClass}>Agregar a Google Calendar</a>

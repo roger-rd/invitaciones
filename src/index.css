@@ -420,6 +420,18 @@ body {
   --font-accent-romantic: "Snell Roundhand", "Segoe Script", cursive;
 }
 
+/* Boda clásica digital: paleta y decoración aisladas con prefijo classic-. */
+@theme {
+  --color-classic-ivory: #FBF8F1;
+  --color-classic-cream: #FFFEFA;
+  --color-classic-sage: #6E8566;
+  --color-classic-sage-soft: #A9B79F;
+  --color-classic-gold: #C6A462;
+  --color-classic-stone: #8A8478;
+  --color-classic-ink: #2E2B24;
+  --font-display-classic: "Fraunces", "Iowan Old Style", Georgia, serif;
+}
+
 @keyframes romantic-drift {
   0%, 100% { transform: translate(0, 0); }
   50% { transform: translate(2px, -4px); }
