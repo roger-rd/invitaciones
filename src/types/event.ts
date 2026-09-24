@@ -1,7 +1,7 @@
 export type EventType = "wedding" | "quince" | "birthday" | "kids-birthday";
 
 export type KidsTemplateId = "circus" | "dino-ranch";
-export type WeddingTemplateId = "romantic-editorial";
+export type WeddingTemplateId = "romantic-editorial" | "classic-digital";
 export type EventTemplateId = KidsTemplateId | WeddingTemplateId;
 
 export interface WeddingVenue {
