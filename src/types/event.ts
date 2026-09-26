@@ -1,6 +1,6 @@
 export type EventType = "wedding" | "quince" | "birthday" | "kids-birthday";
 
-export type KidsTemplateId = "circus" | "dino-ranch";
+export type KidsTemplateId = "circus" | "dino-ranch" | "kids-digital-pastel" | "kids-digital-poster";
 export type WeddingTemplateId = "romantic-editorial" | "classic-digital";
 export type EventTemplateId = KidsTemplateId | WeddingTemplateId;
 

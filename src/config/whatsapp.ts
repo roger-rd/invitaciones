@@ -14,3 +14,49 @@ export function buildModelRequestMessage(
   parts.push("¿Me pueden orientar sobre cómo comenzar?");
   return parts.join(" ");
 }
+
+export interface KidsDigitalRequestData {
+  modelName: string;
+  clientName: string;
+  clientWhatsapp: string;
+  sameWhatsapp: boolean;
+  rsvpWhatsapp: string;
+  childName: string;
+  date: string;
+  location: string;
+  age?: string;
+  phrase?: string;
+  time?: string;
+  mapsUrl?: string;
+  giftMessage?: string;
+  giftSuggestions?: string;
+  comment?: string;
+}
+
+export function buildKidsDigitalRequestMessage(data: KidsDigitalRequestData): string {
+  const optionalDetails: [string, string | undefined][] = [
+    ["Edad que cumple", data.age],
+    ["Frase de invitación", data.phrase],
+    ["Google Maps", data.mapsUrl],
+    ["Mensaje sobre regalos", data.giftMessage],
+    ["Sugerencias de regalo", data.giftSuggestions],
+    ["Comentario adicional", data.comment],
+  ];
+  return [
+    "Hola, RDRP Te Invito. Quisiera solicitar una invitación.",
+    "Categoría: Infantiles",
+    "Tipo: Digitales",
+    `Modelo: ${data.modelName.trim()}`,
+    "",
+    `Tu nombre: ${data.clientName.trim()}`,
+    `WhatsApp del cliente: ${data.clientWhatsapp.trim()}`,
+    `Usar el mismo número para confirmaciones: ${data.sameWhatsapp ? "Sí" : "No"}`,
+    `WhatsApp para confirmaciones de invitados: ${(data.sameWhatsapp ? data.clientWhatsapp : data.rsvpWhatsapp).trim()}`,
+    "",
+    `Nombre del niño o niña: ${data.childName.trim()}`,
+    `Fecha del cumpleaños: ${data.date.trim()}`,
+    `Hora del cumpleaños: ${data.time?.trim() || "hora por confirmar"}`,
+    `Nombre y dirección del lugar: ${data.location.trim()}`,
+    ...optionalDetails.filter(([, value]) => value?.trim()).map(([label, value]) => `${label}: ${value!.trim()}`),
+  ].join("\n");
+}

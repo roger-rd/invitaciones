@@ -8,6 +8,8 @@ import QuinceTemplate from "../templates/QuinceTemplate";
 import BirthdayTemplate from "../templates/BirthdayTemplate";
 
 import KidsBirthdayTemplate from "../templates/KidsBirthdayTemplate";
+import KidsDigitalPastelTemplate from "../templates/KidsDigitalPastelTemplate";
+import KidsDigitalPosterTemplate from "../templates/KidsDigitalPosterTemplate";
 import DinoRanchTemplate from "../templates/DinoRanchTemplate";
 
 export default function InvitationPage() {
@@ -43,6 +45,8 @@ export default function InvitationPage() {
 
   if (event.type === "kids-birthday") {
     if (event.template === "dino-ranch") return <DinoRanchTemplate event={event} />;
+    if (event.template === "kids-digital-pastel") return <KidsDigitalPastelTemplate event={event} />;
+    if (event.template === "kids-digital-poster") return <KidsDigitalPosterTemplate event={event} />;
     return <KidsBirthdayTemplate event={event} />;
   }
 

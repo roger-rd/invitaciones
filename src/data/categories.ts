@@ -16,8 +16,8 @@ export const categories: CategoryDefinition[] = [
     path: "/infantiles",
     label: "Cumpleaños Infantiles",
     shortLabel: "Infantiles",
-    tagline: "Con Chispín, la alegría entra en escena.",
-    description: "El circo de Chispín abre sus puertas a una celebración llena de color y sorpresas. Descubre una invitación que acompaña la ilusión de los más pequeños.",
+    tagline: "Pequeños momentos, grandes celebraciones.",
+    description: "Encuentra una invitación que acompañe la ilusión de su cumpleaños. Explora nuestros formatos y elige cómo compartir la alegría con quienes más quieres.",
     order: 2,
   },
   {

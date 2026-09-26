@@ -458,3 +458,131 @@ body {
   .romantic-panel { transition: opacity 800ms ease; }
   [data-open="true"] .romantic-panel-left, [data-open="true"] .romantic-panel-right { transform: none; opacity: 0; }
 }
+
+.landing-form .confetti-number-choice { display: flex; flex-direction: row; align-items: flex-start; gap: .75rem; cursor: pointer; }
+.landing-form .confetti-number-choice input { flex: 0 0 1.25rem; width: 1.25rem; min-height: 1.25rem; height: 1.25rem; margin-top: .15rem; accent-color: var(--color-confetti-accent); }
+
+/* Infantiles digitales — Guirnalda pastel. */
+@theme {
+  --color-confetti-cream: #fff6e9;
+  --color-confetti-peach: #ffb199;
+  --color-confetti-butter: #ffd166;
+  --color-confetti-sage: #a8c9a0;
+  --color-confetti-pink: #f2a6c0;
+  --color-confetti-ink: #6b3f2a;
+  --color-confetti-accent: #8a6a52;
+  --font-display-confetti: "Baloo 2", ui-rounded, sans-serif;
+  --font-hand-confetti: "Caveat", cursive;
+  --font-body-confetti: "Quicksand", sans-serif;
+}
+
+.confetti-page { min-height: 100vh; background: var(--color-confetti-cream); color: var(--color-confetti-ink); font-family: var(--font-body-confetti); font-weight: 500; line-height: 1.65; }
+.confetti-layout { width: min(100% - 2rem, 38rem); margin-inline: auto; }
+.confetti-hero { position: relative; isolation: isolate; container-type: inline-size; padding: 0 0 1.75rem; text-align: center; overflow: visible; }
+.confetti-garland-space { position: relative; height: clamp(5.5rem, 22vw, 8rem); padding-top: .5rem; overflow: visible; }
+.confetti-garland { display: block; width: 100%; height: auto; overflow: visible; transform-origin: 50% 0; }
+.confetti-sprinkles { position: absolute; inset: 3rem 0 auto; width: 100%; height: calc(100% - 3rem); pointer-events: none; z-index: -1; }
+.confetti-balloons { display: block; width: min(64%, 17rem); height: auto; margin: -1rem auto -.75rem; }
+.confetti-hero-copy { position: relative; padding: 0 .25rem; }
+.confetti-hero-copy::before { content: ""; position: absolute; inset: -2rem -1rem 0; background: radial-gradient(ellipse, #ffd16645, #f2a6c020 50%, transparent 72%); z-index: -1; border-radius: 45% 55% 60% 40%; }
+.confetti-eyebrow { font-family: var(--font-hand-confetti); font-size: clamp(1.6rem, 6cqw, 2.2rem); font-weight: 600; }
+.confetti-name { margin: .25rem 0 .65rem; font-family: var(--font-display-confetti); font-weight: 800; font-size: clamp(2.5rem, 15cqw, 5.5rem); letter-spacing: -.035em; line-height: 1.05; overflow-wrap: anywhere; }
+.confetti-age { display: inline-block; padding: .15rem 1.25rem; border-radius: 999px; background: var(--color-confetti-butter); font-family: var(--font-display-confetti); font-size: 1.4rem; font-weight: 700; }
+.confetti-message { max-width: 29rem; margin: .85rem auto 0; color: var(--color-confetti-accent); font-weight: 600; white-space: pre-line; overflow-wrap: anywhere; }
+.confetti-sections { padding: .25rem 1.15rem; border: 1px solid #8a6a5230; border-radius: 1.75rem; background: #fffcf6; box-shadow: 0 12px 36px #6b3f2a08; }
+.confetti-stop { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .85rem; padding: 1.3rem 0; }
+.confetti-stop + .confetti-stop { border-top: 1px dashed #8a6a5260; }
+.confetti-stop-icon { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--color-confetti-butter); }
+.confetti-stop-location .confetti-stop-icon { background: var(--color-confetti-sage); }
+.confetti-stop-rsvp .confetti-stop-icon { background: var(--color-confetti-peach); }
+.confetti-stop-gifts .confetti-stop-icon { background: var(--color-confetti-pink); }
+.confetti-stop-icon svg { width: 1.35rem; height: 1.35rem; }
+.confetti-stop-content { min-width: 0; overflow-wrap: anywhere; }
+.confetti-stop-content h2 { margin-bottom: .3rem; font-family: var(--font-display-confetti); font-size: 1.4rem; line-height: 1.2; font-weight: 700; }
+.confetti-stop-content p { font-size: .95rem; white-space: pre-line; }
+.confetti-time { display: flex; align-items: center; gap: .4rem; margin-top: .35rem; color: var(--color-confetti-accent); }
+.confetti-time svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+.confetti-button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 3rem; max-width: 100%; margin-top: .85rem; padding: .65rem 1.1rem; border: 1px solid transparent; border-radius: 999px; background: var(--color-confetti-butter); color: var(--color-confetti-ink); text-align: center; font-size: .9rem; font-weight: 700; line-height: 1.4; }
+.confetti-button svg { flex-shrink: 0; width: 1.2rem; height: 1.2rem; }
+.confetti-button-outline { background: transparent; border-color: var(--color-confetti-accent); }
+.confetti-button:hover { text-decoration: underline; }
+.confetti-button:focus-visible { outline: 3px solid var(--color-confetti-ink); outline-offset: 4px; }
+.confetti-gift-list { margin-top: .7rem; padding-left: 1.1rem; list-style: disc; font-size: .9rem; }
+.confetti-gift-list li + li { margin-top: .2rem; }
+.confetti-footer { padding: 1.75rem 4rem 5rem; text-align: center; font-size: .85rem; font-weight: 700; color: var(--color-confetti-accent); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .confetti-garland { animation: confetti-sway 7s ease-in-out infinite; }
+  .confetti-sprinkles { animation: confetti-drift 9s ease-in-out infinite; }
+  @keyframes confetti-sway { 0%, 100% { transform: rotate(-1deg); } 50% { transform: rotate(1deg); } }
+  @keyframes confetti-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(9px); } }
+}
+
+/* Infantiles digitales — Póster gráfico. */
+@theme {
+  --color-papel-teal: #1f7a6c;
+  --color-papel-cream: #fffbf2;
+  --color-papel-coral: #ff6b5b;
+  --color-papel-yellow: #ffc93c;
+  --color-papel-grape: #6c4ab6;
+  --color-papel-pale: #ffe66d;
+  --color-papel-ink: #2b2118;
+  --font-display-papel: "Bungee", Impact, sans-serif;
+  --font-body-papel: "Nunito", sans-serif;
+}
+
+.papel-page { min-height: 100vh; background: var(--color-papel-cream); color: var(--color-papel-ink); font-family: var(--font-body-papel); font-weight: 600; line-height: 1.6; }
+.papel-layout { max-width: 40rem; margin-inline: auto; }
+.papel-hero { position: relative; isolation: isolate; container-type: inline-size; background: var(--color-papel-teal); color: var(--color-papel-cream); text-align: center; padding: 3rem 1rem 2.75rem; }
+.papel-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: repeating-conic-gradient(from 10deg at 50% 52%, #ffe66d09 0deg 12deg, transparent 12deg 30deg); }
+.papel-hero-copy { position: relative; }
+.papel-eyebrow { font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; color: var(--color-papel-pale); }
+.papel-name { margin: 1rem 0 1.4rem; font-family: var(--font-display-papel); font-weight: 400; font-size: clamp(2rem, 10.5cqw, 4.5rem); line-height: 1.15; letter-spacing: -.04em; text-shadow: 3px 3px 0 var(--color-papel-coral); overflow-wrap: anywhere; }
+.papel-medal { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 9rem; height: 9rem; margin: 0 auto 1.3rem; border: 5px solid var(--color-papel-pale); border-radius: 50%; background: var(--color-papel-coral); color: var(--color-papel-ink); box-shadow: 6px 6px 0 #2b211840; transform: rotate(-8deg); }
+.papel-medal strong { font-family: var(--font-display-papel); font-size: 4.1rem; line-height: 1; font-weight: 400; }
+.papel-medal span { font-weight: 800; font-size: .85rem; }
+.papel-message { max-width: 27rem; margin: 0 auto; font-size: 1.05rem; font-weight: 800; white-space: pre-line; overflow-wrap: anywhere; }
+.papel-garland { position: absolute; inset: auto 0 -1.25rem; display: flex; height: 1.5rem; pointer-events: none; }
+.papel-garland span { flex: 1; background: var(--color-papel-yellow); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.papel-garland span:nth-child(4n + 2) { background: var(--color-papel-coral); }
+.papel-garland span:nth-child(4n + 3) { background: var(--color-papel-grape); }
+.papel-garland span:nth-child(4n) { background: var(--color-papel-pale); }
+.papel-sections { display: grid; align-content: start; gap: .8rem; padding: 2.2rem 1rem 0; }
+.papel-stop { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: .75rem; padding: 1.3rem 1.15rem 1.65rem; background: var(--color-papel-teal); color: var(--color-papel-cream); border-radius: .5rem .5rem 0 0; mask: radial-gradient(circle at 10px 100%, transparent 6px, #000 6.5px) bottom / 20px 100% repeat-x; }
+.papel-stop-location { background: var(--color-papel-grape); }
+.papel-stop-rsvp { background: var(--color-papel-coral); color: var(--color-papel-ink); }
+.papel-stop-gifts { background: var(--color-papel-yellow); color: var(--color-papel-ink); }
+.papel-stop-icon { display: grid; place-items: center; height: 2rem; border: 1px solid currentColor; border-radius: 50%; }
+.papel-stop-icon svg { width: 1.15rem; height: 1.15rem; }
+.papel-stop-content { min-width: 0; overflow-wrap: anywhere; }
+.papel-stop-content h2 { margin-bottom: .6rem; font-family: var(--font-display-papel); font-size: 1rem; font-weight: 400; line-height: 1.4; }
+.papel-stop-content p { font-size: .95rem; white-space: pre-line; }
+.papel-time { display: flex; align-items: center; gap: .4rem; margin-top: .3rem; font-weight: 800; }
+.papel-time svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+.papel-button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; max-width: 100%; min-height: 3rem; padding: .65rem 1rem; margin-top: .85rem; border: 2px solid var(--color-papel-ink); border-radius: .4rem; background: #fff; color: var(--color-papel-ink); box-shadow: 3px 3px 0 var(--color-papel-ink); text-align: center; font-size: .9rem; font-weight: 800; line-height: 1.4; }
+.papel-button svg { width: 1.2rem; height: 1.2rem; flex-shrink: 0; }
+.papel-button:hover { text-decoration: underline; }
+.papel-button:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+.papel-gift-list { margin-top: .65rem; list-style: disc; padding-left: 1rem; font-size: .95rem; }
+.papel-gift-list li + li { margin-top: .2rem; }
+.papel-footer { padding: 1.75rem 4rem 5rem; font-size: .85rem; font-weight: 800; text-align: center; }
+
+@media (min-width: 900px) {
+  .confetti-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: clamp(2rem, 4vw, 4rem); width: min(100% - 5rem, 72rem); padding-top: 2.5rem; }
+  .confetti-hero { min-height: 38rem; padding-bottom: 2rem; }
+  .confetti-garland-space { height: 8rem; }
+  .confetti-balloons { width: min(75%, 21rem); margin-top: 0; }
+  .confetti-sections { margin-top: 1rem; padding-inline: 1.5rem; }
+  .confetti-stop { padding-block: 1.5rem; }
+  .papel-layout { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: start; gap: 2rem; width: min(100% - 5rem, 72rem); max-width: none; padding-top: 3rem; }
+  .papel-hero { display: grid; align-content: center; min-height: 39rem; padding: 3rem 1.5rem; border-radius: 1.25rem 1.25rem .3rem .3rem; }
+  .papel-medal { width: 11rem; height: 11rem; margin-block: 2rem; }
+  .papel-medal strong { font-size: 5rem; }
+  .papel-message { max-width: 23rem; }
+  .papel-sections { padding: 0; }
+  .papel-stop { padding: 1.5rem 1.4rem 1.8rem; }
+}
+
+@media (min-width: 900px) and (min-height: 760px) {
+  .confetti-hero, .papel-hero { position: sticky; top: 2rem; }
+}

@@ -3,6 +3,40 @@ import { RDRP_WHATSAPP_NUMBER } from "../config/whatsapp";
 
 export const events: EventData[] = [
   {
+    slug: "cumple-digital-pastel",
+    type: "kids-birthday",
+    template: "kids-digital-pastel",
+    title: "Valentina", // Personaje ficticio de demostración.
+    age: 5,
+    message: "¡Una tarde para jugar, reír y soplar las velitas juntos!",
+    date: "2027-04-17T16:00:00-04:00",
+    timeConfirmed: false,
+    location: "Parque Bicentenario, Av. Bicentenario 3236, Vitacura, Santiago",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Parque+Bicentenario+Vitacura+Santiago",
+    whatsapp: RDRP_WHATSAPP_NUMBER,
+    coverImage: "/images/kids-digital/globos.svg",
+    gallery: [], // Esta plantilla compacta no utiliza galería.
+    giftMessage: "Tu compañía es el mejor regalo. Si quieres traer un detalle, aquí tienes algunas ideas.",
+    giftItems: ["Cuentos ilustrados", "Materiales para dibujar", "Juegos para compartir"],
+  },
+  {
+    slug: "cumple-digital-poster",
+    type: "kids-birthday",
+    template: "kids-digital-poster",
+    title: "Valentina", // Personaje ficticio de demostración.
+    age: 5,
+    message: "¡Una tarde para jugar, reír y soplar las velitas juntos!",
+    date: "2027-04-17T16:00:00-04:00",
+    timeConfirmed: false,
+    location: "Parque Bicentenario, Av. Bicentenario 3236, Vitacura, Santiago",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Parque+Bicentenario+Vitacura+Santiago",
+    whatsapp: RDRP_WHATSAPP_NUMBER,
+    coverImage: "/images/kids-digital/globos.svg",
+    gallery: [], // Esta plantilla compacta no utiliza galería.
+    giftMessage: "Tu compañía es el mejor regalo. Si quieres traer un detalle, aquí tienes algunas ideas.",
+    giftItems: ["Cuentos ilustrados", "Materiales para dibujar", "Juegos para compartir"],
+  },
+  {
     slug: "boda-romantica-editorial",
     type: "wedding",
     template: "romantic-editorial",

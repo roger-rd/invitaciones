@@ -1,13 +1,13 @@
 import { useRef, type KeyboardEvent } from "react";
-import type { WeddingExperienceType } from "../../types/catalog";
+import type { CatalogExperienceType } from "../../types/catalog";
 
 interface ExperienceTypeTabsProps {
-  active: WeddingExperienceType;
-  onChange: (value: WeddingExperienceType) => void;
+  active: CatalogExperienceType;
+  onChange: (value: CatalogExperienceType) => void;
   panelId: string;
 }
 
-const tabs: { value: WeddingExperienceType; label: string }[] = [
+const tabs: { value: CatalogExperienceType; label: string }[] = [
   { value: "digital", label: "Digitales" },
   { value: "interactive", label: "Interactivas" },
   { value: "video", label: "Video invitaciones" },

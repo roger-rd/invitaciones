@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" rx="24" fill="#1F7A6C"/>
+  <g fill="#FFE66D" opacity=".12">
+    <path d="m300 200-80-200H90ZM300 200 350 0h130ZM300 200 600 45v110ZM300 200l300 80v120ZM300 200l95 200H260ZM300 200 110 400H0ZM300 200 0 180V70Z"/>
+  </g>
+  <g transform="rotate(-8 300 192)">
+    <circle cx="307" cy="201" r="118" fill="#2B2118" opacity=".35"/>
+    <circle cx="300" cy="192" r="118" fill="#FF6B5B" stroke="#FFE66D" stroke-width="8"/>
+    <path d="m300 109 22 48 53 6-40 35 11 52-46-27-46 27 11-52-40-35 53-6Z" fill="#FFE66D" stroke="#2B2118" stroke-width="3"/>
+  </g>
+  <g stroke-width="10" stroke-linecap="square">
+    <path d="m95 73 13 19m360 214 18 10M131 285l-15 14" stroke="#FF6B5B"/>
+    <path d="m479 94 13-16M90 206l21-5M426 43l13 11" stroke="#FFC93C"/>
+    <path d="m498 206 12 13M172 52l-9 17" stroke="#FFFBF2"/>
+  </g>
+  <path d="M0 360h60l-30 40ZM180 360h60l-30 40ZM360 360h60l-30 40ZM540 360h60l-30 40Z" fill="#FFC93C"/>
+  <path d="M60 360h60l-30 40ZM240 360h60l-30 40ZM420 360h60l-30 40Z" fill="#FF6B5B"/>
+  <path d="M120 360h60l-30 40ZM300 360h60l-30 40ZM480 360h60l-30 40Z" fill="#6C4AB6"/>
+</svg>

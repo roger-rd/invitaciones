@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import type { CatalogModel, WeddingExperienceType } from "../../types/catalog";
+import type { CatalogModel, CatalogExperienceType } from "../../types/catalog";
 import { categories } from "../../data/categories";
-const experienceLabels: Record<WeddingExperienceType, string> = {
+const experienceLabels: Record<CatalogExperienceType, string> = {
   digital: "Digital",
   interactive: "Interactiva",
   video: "Video invitación",
