@@ -9,12 +9,11 @@ export default function DinoEggReveal({ message, hatchlingImage }: DinoEggReveal
   const [hatched, setHatched] = useState(false);
   const [failedHatchling, setFailedHatchling] = useState<string>();
   const id = useId();
+  const hasHatchlingImage = Boolean(hatchlingImage) && failedHatchling !== hatchlingImage;
   return (
-    <section className="dino-scene bg-dino-leaf text-dino-cream">
-      <p className="dino-eyebrow text-dino-sun">Un secreto del valle</p>
-      <h2 className="dino-heading">¡Descubre quién está por nacer!</h2>
+    <section className="dino-scene flex min-h-svh flex-col items-center justify-center gap-8 bg-dino-leaf text-dino-cream">
       <div
-        className={`dino-egg relative mx-auto mt-20 aspect-[200/260] w-full max-w-sm ${!hatched ? "dino-egg-idle" : ""}`}
+        className={`dino-egg relative mx-auto w-full max-w-md sm:max-w-lg ${hatched ? "aspect-square" : "aspect-[200/260]"} ${!hatched ? "dino-egg-idle" : ""}`}
         data-hatched={hatched}
       >
         <svg viewBox="0 0 200 260" className="dino-egg-shell-bottom absolute inset-0 h-full w-full" aria-hidden="true">
@@ -24,27 +23,30 @@ export default function DinoEggReveal({ message, hatchlingImage }: DinoEggReveal
         <svg viewBox="0 0 200 260" className="dino-egg-shell-top absolute inset-0 h-full w-full" aria-hidden="true">
           <path d="M100 20C60 20 30 80 18 130L100 140L182 130C170 80 140 20 100 20Z" fill="#FFF8E7" stroke="#5C3A21" strokeWidth="4" />
         </svg>
-        {hatchlingImage && failedHatchling !== hatchlingImage && (
+        {hasHatchlingImage && (
           <img
-            aria-hidden="true"
+            id={id}
+            aria-hidden={!hatched}
             src={hatchlingImage}
-            alt=""
+            alt="Dinosaurio bebé saliendo del huevo"
             onError={() => setFailedHatchling(hatchlingImage)}
-            className={`dino-hatchling pointer-events-none absolute left-1/2 top-[-8%] h-28 w-28 object-contain sm:h-36 sm:w-36 ${hatched ? "dino-hatchling-visible" : ""}`}
+            className={`dino-hatchling absolute inset-0 h-full w-full object-contain ${hatched ? "dino-hatchling-visible" : "pointer-events-none"}`}
           />
         )}
-        <div id={id} aria-hidden={!hatched} inert={!hatched} className="dino-egg-content absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-[45%] bg-dino-cream p-6 text-center text-dino-earth">
-          <p className="text-lg leading-relaxed" style={{ fontFamily: "var(--font-display-dino)" }}>
-            {message || "¡La sorpresa eres tú! Con tu sonrisa, esta será la expedición más bonita del rancho."}
-          </p>
-        </div>
+        {!hasHatchlingImage && (
+          <div id={id} aria-hidden={!hatched} className="dino-egg-content absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center">
+            <p className="text-lg leading-relaxed" style={{ fontFamily: "var(--font-display-dino)" }}>
+              {message || "¡Muy pronto conocerás a nuestro amigo del rancho!"}
+            </p>
+          </div>
+        )}
       </div>
       <button
         type="button"
         aria-expanded={hatched}
         aria-controls={id}
         onClick={() => setHatched(!hatched)}
-        className="dino-button mt-7 bg-dino-sun text-dino-earth"
+        className="dino-button bg-dino-sun text-dino-earth"
       >
         {hatched ? "Cerrar el huevo" : "Toca para que eclosione"}
       </button>

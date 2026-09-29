@@ -62,7 +62,7 @@ export const catalogModels: CatalogModel[] = [
     shortDescription: "Un pequeño explorador te da la bienvenida a una aventura de rancho y dinosaurios amigables.",
     style: "Rancho de dinosaurios",
     demoPath: "/jose-david-rancho-dino",
-    coverImage: "/images/theme-dino-ranch/character/dino-explorer.svg",
+    coverImage: "/images/theme-dino-ranch/character/dino_ranch.png",
     features: ["Apertura de portón", "Cuenta regresiva", "Huevo sorpresa interactivo", "Galería de fotografías", "Confirmación por WhatsApp"],
     status: "available",
     tag: "nuevo",
