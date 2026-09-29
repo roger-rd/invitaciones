@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
+import LoadingCarta from "./components/LoadingCarta";
 import InvitationPage from "./pages/InvitationPage";
 
 const LandingPage = lazy(() => import("./pages/LandingPage"));
@@ -7,7 +8,7 @@ const CategoryPage = lazy(() => import("./pages/CategoryPage"));
 
 export default function App() {
   return (
-    <Suspense fallback={<div role="status" className="min-h-screen bg-cream p-8 text-ink">Cargando…</div>}>
+    <Suspense fallback={<LoadingCarta />}>
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/cumpleanos" element={<CategoryPage category="birthday" />} />

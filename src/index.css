@@ -586,3 +586,27 @@ body {
 @media (min-width: 900px) and (min-height: 760px) {
   .confetti-hero, .papel-hero { position: sticky; top: 2rem; }
 }
+
+/* Fallback de carga: carta asentada por defecto, vuelo solo sin reducción de movimiento. */
+.loading-carta-scene { position: relative; display: grid; place-items: center; width: 12rem; height: 12rem; }
+.loading-carta-letter { display: block; width: 112px; height: 112px; }
+.loading-carta-spark { position: absolute; width: 12px; height: 12px; background: #d9a952; opacity: .4; clip-path: polygon(50% 0, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0 50%, 37% 37%); }
+.loading-carta-spark-one { top: 1.5rem; right: 1.75rem; }
+.loading-carta-spark-two { bottom: 2rem; left: 1.5rem; width: 9px; height: 9px; }
+.loading-carta-spark-three { bottom: 2.5rem; right: 1.25rem; width: 7px; height: 7px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .loading-carta-letter { animation: loading-carta-flight 2.8s ease-in-out infinite alternate; }
+  .loading-carta-spark { animation: loading-carta-twinkle 2.4s ease-in-out infinite; }
+  .loading-carta-spark-one { animation-delay: -.2s; }
+  .loading-carta-spark-two { animation-delay: -1s; }
+  .loading-carta-spark-three { animation-delay: -1.8s; }
+  @keyframes loading-carta-flight {
+    from { transform: translate(-3px, 0) rotate(-4deg); }
+    to { transform: translate(3px, -10px) rotate(4deg); }
+  }
+  @keyframes loading-carta-twinkle {
+    0%, 100% { opacity: .25; transform: scale(.75); }
+    50% { opacity: .9; transform: scale(1.2); }
+  }
+}
