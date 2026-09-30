@@ -5,6 +5,7 @@ import WeddingTemplate from "../templates/WeddingTemplate";
 import WeddingRomanticTemplate from "../templates/WeddingRomanticTemplate";
 import WeddingClassicDigitalTemplate from "../templates/WeddingClassicDigitalTemplate";
 import QuinceTemplate from "../templates/QuinceTemplate";
+import SpecialVitelaTemplate from "../templates/SpecialVitelaTemplate";
 import BirthdayTemplate from "../templates/BirthdayTemplate";
 
 import KidsBirthdayTemplate from "../templates/KidsBirthdayTemplate";
@@ -29,6 +30,17 @@ export default function InvitationPage() {
             Revisa el slug o agrégalo en <code>src/data/events.ts</code>.
           </p>
         </div>
+      </main>
+    );
+  }
+
+  if (event.type === "special-celebration") {
+    if (event.template === "vitela-seal" && event.special) return <SpecialVitelaTemplate key={event.slug} event={event} data={event.special} />;
+    return (
+      <main className="catalog-theme-special-celebration min-h-svh px-6 py-24 text-center">
+        <h1 className="font-display text-4xl">{event.title}</h1>
+        <p className="mx-auto mt-6 max-w-lg">Estamos preparando los detalles de esta celebración.</p>
+        <a className="landing-navlink mt-6 underline" href="/celebraciones-especiales">Ver Celebraciones Especiales</a>
       </main>
     );
   }

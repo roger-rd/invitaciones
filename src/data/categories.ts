@@ -38,4 +38,14 @@ export const categories: CategoryDefinition[] = [
     description: "Anuncien el comienzo de esta etapa con una invitación romántica y cuidada. Reúnan a sus seres queridos alrededor de la historia que construyen juntos.",
     order: 4,
   },
+  {
+    id: "special-celebration",
+    slug: "celebraciones-especiales",
+    path: "/celebraciones-especiales",
+    label: "Celebraciones Especiales",
+    shortLabel: "Especiales",
+    tagline: "Momentos únicos, con una identidad propia.",
+    description: "Una línea abierta para celebraciones que merecen una invitación pensada a medida. Cada diseño se define según la historia de quien celebra.",
+    order: 5,
+  },
 ];
