@@ -611,3 +611,160 @@ body {
     50% { opacity: .9; transform: scale(1.2); }
   }
 }
+
+/* Línea abierta: el catálogo conserva su identidad neutral. */
+.catalog-theme-special-celebration,
+.catalog-theme-special-celebration .catalog-gradient {
+  color: var(--color-ink);
+  background: linear-gradient(125deg, var(--color-cream) 25%, var(--color-gold-soft));
+}
+@media (min-width: 768px) {
+  .landing-category-block-4 { grid-column: 1 / -1; }
+  .landing-category-block-4 .landing-category { min-height: 19rem; }
+}
+
+/* Vitela y agua: papel perlado, rubor y luz. */
+@theme {
+  --color-vitela-perla: #FBF8F4;
+  --color-vitela-vitela: #F3EAE0;
+  --color-vitela-rubor: #E9CFCB;
+  --color-vitela-bruma: #C9DADB;
+  --color-vitela-rosa-cera: #9A5B66;
+  --color-vitela-tinta: #463840;
+  --color-vitela-champan: #C9A97A;
+  --font-display-vitela: "Cormorant Garamond", Georgia, serif;
+  --font-sans-vitela: "Jost", system-ui, sans-serif;
+}
+.vitela-page {
+  --vitela-seal-duration: 350ms;
+  --vitela-ribbon-at: 300ms;
+  --vitela-ribbon-duration: 250ms;
+  --vitela-unroll-at: 450ms;
+  --vitela-unroll-duration: 900ms;
+  --vitela-content-at: 1200ms;
+  --vitela-exit-at: 1300ms;
+  --vitela-exit-duration: 200ms;
+  --vitela-photo-delay: 600ms;
+  --vitela-photo-duration: 900ms;
+  --vitela-reduced-duration: 300ms;
+  position: relative; isolation: isolate; min-height: 100svh; overflow: clip;
+  background: var(--color-vitela-perla); color: var(--color-vitela-tinta);
+  font-family: var(--font-sans-vitela); font-weight: 400; font-size: 16px; line-height: 1.7;
+}
+.vitela-page :is(button, a, summary, h1):focus-visible { outline: 2px solid var(--color-vitela-rosa-cera); outline-offset: 6px; }
+.vitela-label { font-family: var(--font-sans-vitela); font-size: .68rem; font-weight: 500; line-height: 1.9; letter-spacing: .22em; text-transform: uppercase; }
+.vitela-water { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+.vitela-water i { position: absolute; width: 42rem; height: 32rem; max-width: 170vw; border-radius: 50%; background: radial-gradient(ellipse, transparent 46%, color-mix(in srgb, var(--color-vitela-bruma) 24%, transparent) 49%, transparent 52%, color-mix(in srgb, var(--color-vitela-bruma) 15%, transparent) 58%, transparent 62%); animation: vitela-water-drift 26s ease-in-out infinite alternate; }
+.vitela-water i:nth-child(1) { top: -8rem; left: -20rem; }
+.vitela-water i:nth-child(2) { right: -24rem; top: 32%; animation-delay: -12s; }
+.vitela-water i:nth-child(3) { left: -24rem; bottom: 4%; animation-delay: -7s; }
+.vitela-sheet { position: relative; width: min(100%, 440px); margin-inline: auto; padding: max(64px, env(safe-area-inset-top)) 24px max(40px, env(safe-area-inset-bottom)); text-align: center; background: linear-gradient(100deg, color-mix(in srgb, var(--color-vitela-vitela) 24%, transparent), var(--color-vitela-perla) 18%, var(--color-vitela-perla) 82%, color-mix(in srgb, var(--color-vitela-vitela) 35%, transparent)); box-shadow: 0 0 80px color-mix(in srgb, var(--color-vitela-rubor) 13%, transparent); }
+.vitela-sheet::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .17; background-image: repeating-linear-gradient(4deg, transparent 0 3px, color-mix(in srgb, var(--color-vitela-champan) 12%, transparent) 3px 4px); }
+.vitela-sheet > * { position: relative; }
+.vitela-hero { padding-block: 10px 0; }
+.vitela-title { margin: 24px 0 38px; font-family: var(--font-display-vitela); font-weight: 400; text-wrap: balance; overflow-wrap: anywhere; }
+.vitela-title > span { animation: vitela-in 150ms ease both; display: block; margin-bottom: 20px; font-size: clamp(2.6rem, 10vw, 3.5rem); font-weight: 300; line-height: 1.1; }
+.vitela-title em { animation: vitela-in 200ms 100ms ease both; display: block; font-weight: 400; font-size: clamp(2.5rem, 10.8vw, 3.5rem); line-height: 1.05; }
+.vitela-arch { position: relative; width: 73%; aspect-ratio: 4 / 5; margin: 0 auto; }
+.vitela-arch-surface { position: absolute; inset: 10px; overflow: hidden; border-radius: 50% 50% 0 0 / 40% 40% 0 0; background: var(--color-vitela-vitela); }
+.vitela-photo-placeholder { position: absolute; inset: 0; background: radial-gradient(ellipse at 68% 28%, var(--color-vitela-perla), transparent 52%), linear-gradient(150deg, var(--color-vitela-vitela), var(--color-vitela-rubor) 72%, var(--color-vitela-bruma)); }
+.vitela-photo-placeholder i { position: absolute; width: 160%; height: 35%; border: 1px solid color-mix(in srgb, var(--color-vitela-perla) 60%, transparent); border-radius: 50%; left: -20%; top: 55%; transform: rotate(-18deg); }
+.vitela-photo-placeholder i:nth-child(2) { top: 62%; }
+.vitela-photo-placeholder i:nth-child(3) { top: 69%; }
+.vitela-photo { width: 100%; height: 100%; object-fit: cover; position: relative; opacity: 0; filter: blur(2px); transform: scale(1.02); transition: opacity var(--vitela-photo-duration) ease, filter var(--vitela-photo-duration) ease, transform var(--vitela-photo-duration) ease; }
+.vitela-photo-revealed .vitela-photo { opacity: 1; filter: blur(0); transform: scale(1); }
+.vitela-arch-lines { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: var(--color-vitela-champan); stroke-width: .7; pointer-events: none; }
+.vitela-arch-drawing { clip-path: inset(0 0 100%); }
+.vitela-photo-revealed .vitela-arch-drawing { animation: vitela-arch-draw var(--vitela-photo-duration) ease forwards; }
+.vitela-verse { margin: 48px auto 0; max-width: 320px; }
+.vitela-verse blockquote { font-family: var(--font-display-vitela); font-style: italic; font-size: 1.55rem; line-height: 1.45; }
+.vitela-verse figcaption { margin-top: 20px; }
+.vitela-people { padding-top: 58px; }
+.vitela-people-group { padding-block: 32px; }
+.vitela-people-group::before, .vitela-date::before, .vitela-venue::before { content: ""; display: block; width: 36px; height: 1px; margin: 0 auto 30px; background: var(--color-vitela-champan); }
+.vitela-people-group h2 { margin-bottom: 22px; }
+.vitela-people-group p { font-family: var(--font-display-vitela); font-size: 1.45rem; line-height: 1.55; overflow-wrap: anywhere; text-wrap: balance; }
+.vitela-people-group p + p { margin-top: 8px; }
+.vitela-date { padding-block: 44px 56px; }
+.vitela-date-text { margin-top: 26px; font-family: var(--font-display-vitela); font-size: 2rem; line-height: 1.2; text-wrap: balance; }
+.vitela-time { margin-top: 14px; font-size: .95rem; letter-spacing: .08em; }
+.vitela-countdown { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 38px; }
+.vitela-countdown > div { display: flex; flex-direction: column-reverse; border-right: 1px solid color-mix(in srgb, var(--color-vitela-champan) 50%, transparent); padding-inline: 3px; }
+.vitela-countdown > div:last-child { border: 0; }
+.vitela-countdown dd { font-family: var(--font-display-vitela); font-size: clamp(2rem, 8vw, 3rem); font-weight: 300; font-variant-numeric: lining-nums tabular-nums; line-height: 1.3; }
+.vitela-countdown .vitela-label { letter-spacing: .12em; font-size: .6rem; }
+.vitela-digit { display: inline-block; animation: vitela-digit-fade .25s ease; }
+.vitela-today { margin-top: 32px; font-family: var(--font-display-vitela); font-size: 2rem; font-style: italic; }
+.vitela-venue { padding-block: 16px 32px; }
+.vitela-venue-name { margin: 26px auto 14px; font-family: var(--font-display-vitela); font-size: 2rem; line-height: 1.2; text-wrap: balance; }
+.vitela-actions { display: grid; gap: 12px; margin-top: 28px; }
+.vitela-button { display: flex; width: 100%; min-height: 48px; align-items: center; justify-content: center; gap: 12px; padding: 13px 14px; border: 1px solid var(--color-vitela-rosa-cera); border-radius: 3px; color: var(--color-vitela-tinta); font-family: var(--font-sans-vitela); font-size: .88rem; line-height: 1.5; cursor: pointer; text-decoration: none; background: transparent; }
+.vitela-button:hover { text-decoration: underline; text-underline-offset: 4px; }
+.vitela-button-primary { background: var(--color-vitela-rosa-cera); color: var(--color-vitela-perla); }
+.vitela-calendar { margin-top: 0; }
+.vitela-calendar summary { list-style: none; }
+.vitela-calendar summary::-webkit-details-marker { display: none; }
+.vitela-calendar[open] summary span { transform: rotate(45deg); }
+.vitela-calendar .vitela-actions { margin-top: 12px; }
+.vitela-closing { padding: 68px 16px 32px; font-family: var(--font-display-vitela); font-size: 1.7rem; font-style: italic; line-height: 1.35; text-wrap: balance; }
+.vitela-closing-mark { display: block; width: 12px; height: 17px; border: 1px solid var(--color-vitela-champan); border-radius: 70% 30% 65% 35%; margin: 0 auto 24px; transform: rotate(-30deg); }
+
+/* Rollo horizontal: fractura, caída de cinta y despliegue vertical. */
+.vitela-intro { position: fixed; inset: 0; z-index: 50; height: 100svh; isolation: isolate; display: grid; place-items: center; padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom)); background: radial-gradient(ellipse at 50% 42%, var(--color-vitela-perla) 15%, color-mix(in srgb, var(--color-vitela-bruma) 18%, var(--color-vitela-perla)) 100%); }
+.vitela-intro-object { width: min(100%, 380px); text-align: center; }
+.vitela-intro-note { margin-bottom: 86px; }
+.vitela-scroll { position: relative; height: 100px; width: 100%; }
+.vitela-scroll-roll, .vitela-scroll-bottom { position: absolute; inset: 10px 0 auto; height: 72px; border-radius: 50% / 18%; border: 1px solid color-mix(in srgb, var(--color-vitela-champan) 26%, transparent); background: linear-gradient(180deg, var(--color-vitela-vitela), var(--color-vitela-perla) 28%, var(--color-vitela-perla) 48%, var(--color-vitela-vitela) 85%, color-mix(in srgb, var(--color-vitela-champan) 30%, var(--color-vitela-vitela))); box-shadow: 0 16px 25px color-mix(in srgb, var(--color-vitela-tinta) 9%, transparent); }
+.vitela-scroll-roll::before, .vitela-scroll-roll::after { content: ""; position: absolute; top: 5%; bottom: 5%; width: 16px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--color-vitela-champan) 40%, transparent); background: linear-gradient(90deg, var(--color-vitela-vitela), var(--color-vitela-perla), var(--color-vitela-vitela)); }
+.vitela-scroll-roll::before { left: -5px; }
+.vitela-scroll-roll::after { right: -5px; }
+.vitela-scroll-bottom { z-index: 1; opacity: 0; }
+.vitela-scroll-sheet { position: absolute; top: 40px; left: 8px; right: 8px; height: 100svh; background: linear-gradient(90deg, var(--color-vitela-vitela), var(--color-vitela-perla) 12% 88%, var(--color-vitela-vitela)); clip-path: inset(0 0 100% 0); }
+.vitela-ribbon { position: absolute; z-index: 2; top: 0; left: calc(50% - 8px); width: 16px; height: 106px; background: linear-gradient(90deg, var(--color-vitela-rubor), var(--color-vitela-perla) 50%, var(--color-vitela-rubor)); border-inline: 1px solid color-mix(in srgb, var(--color-vitela-rosa-cera) 22%, transparent); transform: rotate(-5deg); }
+.vitela-seal { position: absolute; z-index: 3; top: -5px; left: calc(50% - 56px); width: 112px; height: 112px; border-radius: 50%; cursor: pointer; animation: vitela-seal-pulse 3.4s ease-in-out infinite; }
+.vitela-seal svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 4px 3px color-mix(in srgb, var(--color-vitela-tinta) 20%, transparent)); }
+.vitela-wax-left, .vitela-wax-right { fill: var(--color-vitela-rosa-cera); stroke: color-mix(in srgb, var(--color-vitela-perla) 16%, var(--color-vitela-rosa-cera)); stroke-width: 1.4; }
+.vitela-seal .vitela-wax-ring { fill: none; stroke: var(--color-vitela-rubor); stroke-width: 1; opacity: .55; }
+.vitela-wax-mark { fill: none; stroke: var(--color-vitela-rubor); stroke-width: 1.2; }
+.vitela-wax-particles i { position: absolute; width: 5px; height: 7px; top: 50%; left: 50%; background: var(--color-vitela-rosa-cera); opacity: 0; border-radius: 35%; --vitela-particle-x: -40px; --vitela-particle-y: 55px; }
+.vitela-wax-particles i:nth-child(2) { --vitela-particle-x: 55px; --vitela-particle-y: 30px; }
+.vitela-wax-particles i:nth-child(3) { --vitela-particle-x: -20px; --vitela-particle-y: -35px; }
+.vitela-wax-particles i:nth-child(4) { --vitela-particle-x: 30px; --vitela-particle-y: 65px; }
+.vitela-intro-hint { margin-top: 55px; }
+.vitela-seal:active { animation: none; transform: scale(.96); }
+.vitela-opening .vitela-seal { animation: none; cursor: default; }
+.vitela-opening .vitela-wax-left { animation: vitela-wax-left var(--vitela-seal-duration) ease forwards; }
+.vitela-opening .vitela-wax-right { animation: vitela-wax-right var(--vitela-seal-duration) ease forwards; }
+.vitela-opening .vitela-wax-mark { animation: vitela-out .35s ease forwards; }
+.vitela-opening .vitela-wax-particles i { animation: vitela-wax-particle var(--vitela-seal-duration) ease forwards; }
+.vitela-opening .vitela-ribbon { animation: vitela-ribbon-fall var(--vitela-ribbon-duration) var(--vitela-ribbon-at) ease-in forwards; }
+.vitela-opening .vitela-scroll-sheet { animation: vitela-unroll var(--vitela-unroll-duration) var(--vitela-unroll-at) cubic-bezier(.25,.1,.25,1) forwards; }
+.vitela-opening .vitela-scroll-bottom { animation: vitela-roll-down var(--vitela-unroll-duration) var(--vitela-unroll-at) cubic-bezier(.25,.1,.25,1) forwards; }
+.vitela-opening .vitela-intro-note, .vitela-opening .vitela-intro-hint { animation: vitela-out .35s ease forwards; }
+.vitela-opening { animation: vitela-out var(--vitela-exit-duration) var(--vitela-exit-at) ease forwards; }
+@keyframes vitela-water-drift { to { transform: translate(4%, 6%) rotate(9deg) scale(1.08); } }
+@keyframes vitela-seal-pulse { 50% { transform: scale(1.035); } }
+@keyframes vitela-wax-left { to { transform: translate(-24px, 14px) rotate(-18deg); opacity: 0; } }
+@keyframes vitela-wax-right { to { transform: translate(24px, 18px) rotate(20deg); opacity: 0; } }
+@keyframes vitela-wax-particle { 15% { opacity: 1; } to { transform: translate(var(--vitela-particle-x), var(--vitela-particle-y)) rotate(100deg); opacity: 0; } }
+@keyframes vitela-ribbon-fall { to { transform: translateY(100px) rotate(24deg) scaleX(1.3); opacity: 0; } }
+@keyframes vitela-unroll { to { clip-path: inset(0); } }
+@keyframes vitela-roll-down { 0% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(100svh); opacity: 0; } }
+@keyframes vitela-out { to { opacity: 0; } }
+@keyframes vitela-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes vitela-digit-fade { from { opacity: .45; } to { opacity: 1; } }
+@keyframes vitela-arch-draw { to { clip-path: inset(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .vitela-water i, .vitela-seal, .vitela-opening .vitela-wax-left,
+  .vitela-opening .vitela-wax-right, .vitela-opening .vitela-wax-mark,
+  .vitela-opening .vitela-wax-particles i, .vitela-opening .vitela-ribbon,
+  .vitela-opening .vitela-scroll-sheet, .vitela-opening .vitela-scroll-bottom,
+  .vitela-opening .vitela-intro-note, .vitela-opening .vitela-intro-hint,
+  .vitela-digit, .vitela-photo-revealed .vitela-arch-drawing { animation: none; }
+  .vitela-title > span, .vitela-title em { animation: none; }
+  .vitela-opening { animation: vitela-out var(--vitela-reduced-duration) ease forwards; }
+  .vitela-sheet { animation: vitela-in .3s ease; }
+  .vitela-photo, .vitela-photo-revealed .vitela-photo { filter: none; transform: none; transition: opacity var(--vitela-reduced-duration) ease; }
+  .vitela-photo-revealed .vitela-arch-drawing { clip-path: inset(0); }
+  .vitela-page .reveal { opacity: 1; transform: none; transition: none; }
+}

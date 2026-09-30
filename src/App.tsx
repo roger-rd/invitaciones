@@ -15,6 +15,7 @@ export default function App() {
       <Route path="/infantiles" element={<CategoryPage category="kids-birthday" />} />
       <Route path="/quince-anos" element={<CategoryPage category="quince" />} />
       <Route path="/matrimonios" element={<CategoryPage category="wedding" />} />
+      <Route path="/celebraciones-especiales" element={<CategoryPage category="special-celebration" />} />
       <Route path="/:slug" element={<InvitationPage />} />
       <Route
         path="*"

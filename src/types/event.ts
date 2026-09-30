@@ -1,8 +1,9 @@
-export type EventType = "wedding" | "quince" | "birthday" | "kids-birthday";
+export type EventType = "wedding" | "quince" | "birthday" | "kids-birthday" | "special-celebration";
 
 export type KidsTemplateId = "circus" | "dino-ranch" | "kids-digital-pastel" | "kids-digital-poster";
 export type WeddingTemplateId = "romantic-editorial" | "classic-digital";
-export type EventTemplateId = KidsTemplateId | WeddingTemplateId;
+export type SpecialTemplateId = "vitela-seal";
+export type EventTemplateId = KidsTemplateId | WeddingTemplateId | SpecialTemplateId;
 
 export interface WeddingVenue {
   name: string;
@@ -103,7 +104,23 @@ export interface DinoRanchThemeData {
   closingCharacterImage?: string;
 }
 
+export interface SpecialCelebrationData {
+  eyebrow?: string;
+  heading: string;
+  honoreeName: string;
+  photo?: { src: string; alt: string; width?: number; height?: number; position?: string };
+  quote?: { text: string; reference?: string };
+  people?: { title: string; names: string[] }[];
+  dateTimeIso: string;
+  dateLabel?: string;
+  timeLabel?: string;
+  venue: { name: string; city?: string; address?: string; mapsUrl?: string; wazeUrl?: string; searchQuery?: string };
+  calendar?: { title: string; description?: string };
+  closingMessage?: string;
+}
+
 export interface EventData {
+  special?: SpecialCelebrationData;
   giftMessage?: string;
   giftItems?: string[];
   giftLinkUrl?: string;

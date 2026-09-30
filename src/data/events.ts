@@ -3,6 +3,46 @@ import { RDRP_WHATSAPP_NUMBER } from "../config/whatsapp";
 
 export const events: EventData[] = [
   {
+    slug: "alana-bautizo",
+    type: "special-celebration",
+    template: "vitela-seal",
+    title: "Alana Andrea",
+    date: "2026-10-16T18:00:00-03:00",
+    location: "Iglesia de los Sacramentinos, Santiago de Chile",
+    mapsUrl: "",
+    whatsapp: RDRP_WHATSAPP_NUMBER,
+    coverImage: "",
+    gallery: [],
+    message: "El que no nace del agua y del Espíritu no puede entrar en el reino de Dios.",
+    special: {
+      eyebrow: "Con la bendición de Dios",
+      heading: "Te invito a mi Bautizo",
+      honoreeName: "Alana Andrea López Guevara",
+      photo: {
+        src: "/images/alana-bautizo/alana.webp",
+        alt: "Alana Andrea sonriendo, con un sombrero blanco, sentada entre flores pequeñas y una manta suave",
+        width: 1122,
+        height: 1402,
+        position: "50% 0%",
+      },
+      quote: {
+        text: "El que no nace del agua y del Espíritu no puede entrar en el reino de Dios.",
+        reference: "Juan 3:5",
+      },
+      people: [
+        { title: "Sus padres", names: ["Alfredo Jesús López Rodríguez", "Marianna Andreina Guevara Manfrey"] },
+        { title: "Padrinos", names: ["Rorge Rodríguez", "Mariant Rojas", "Robert Rondón", "Willianny Torres", "Abraham Guevara", "Graciela Guevara"] },
+      ],
+      dateTimeIso: "2026-10-16T18:00:00-03:00",
+      dateLabel: "Viernes 16 de octubre de 2026",
+      timeLabel: "18:00 hrs",
+      // PENDIENTE: reemplazar por enlaces directos de Google Maps y Waze
+      venue: { name: "Iglesia de los Sacramentinos", city: "Santiago de Chile", searchQuery: "Iglesia de los Sacramentinos, Santiago de Chile" },
+      calendar: { title: "Bautizo de Alana Andrea", description: "Con la bendición de Dios, te esperamos." },
+      closingMessage: "Gracias por acompañarme en este día tan especial.",
+    },
+  },
+  {
     slug: "cumple-digital-pastel",
     type: "kids-birthday",
     template: "kids-digital-pastel",
