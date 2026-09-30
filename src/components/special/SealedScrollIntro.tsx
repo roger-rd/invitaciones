@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { readCssTimeMs } from "../../utils/cssTime";
 import SpecialWaxSeal from "./WaxSeal";
 import SpecialWaterLightDecor from "./WaterLightDecor";
 import { useSpecialReducedMotion } from "./useSpecialReducedMotion";
@@ -21,12 +22,11 @@ export default function SpecialSealedScrollIntro({ onReveal, onComplete }: { onR
 
   useEffect(() => {
     if (!opening) return;
-    const styles = getComputedStyle(intro.current!);
-    const ms = (name: string) => parseFloat(styles.getPropertyValue(name));
-    const revealTimer = window.setTimeout(onReveal, reduced ? 0 : ms("--vitela-content-at"));
+    const ms = (name: string, fallback: number) => readCssTimeMs(intro.current!, name, fallback);
+    const revealTimer = window.setTimeout(onReveal, reduced ? 0 : ms("--vitela-content-at", 1200));
     const timer = window.setTimeout(onComplete, reduced
-      ? ms("--vitela-reduced-duration")
-      : ms("--vitela-exit-at") + ms("--vitela-exit-duration"));
+      ? ms("--vitela-reduced-duration", 300)
+      : ms("--vitela-exit-at", 1300) + ms("--vitela-exit-duration", 200));
     return () => { window.clearTimeout(revealTimer); window.clearTimeout(timer); };
   }, [opening, reduced, onReveal, onComplete]);
 

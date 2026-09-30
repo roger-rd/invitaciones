@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { readCssTimeMs } from "../../utils/cssTime";
 import { useSpecialReducedMotion } from "./useSpecialReducedMotion";
 import type { SpecialCelebrationData } from "../../types/event";
 
@@ -12,7 +13,7 @@ export default function SpecialArchPhotoFrame({ photo, active = true }: { photo?
   useEffect(() => {
     // Contar desde el final de la apertura, con el nombre completamente visible.
     if (!active) return;
-    const delay = parseFloat(getComputedStyle(frame.current!).getPropertyValue("--vitela-photo-delay"));
+    const delay = readCssTimeMs(frame.current!, "--vitela-photo-delay", 600);
     const timer = window.setTimeout(() => setDelayElapsed(true), reduced ? 0 : delay);
     return () => window.clearTimeout(timer);
   }, [active, reduced]);
