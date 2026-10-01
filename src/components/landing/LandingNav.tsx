@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { categories } from "../../data/categories";
 import { buildWhatsAppUrl } from "../../config/whatsapp";
 export default function LandingNav() {
@@ -16,9 +16,9 @@ export default function LandingNav() {
         </Link>
         <div className="flex flex-wrap gap-x-5">
           {categories.map((c) => (
-            <Link className="landing-navlink" key={c.id} to={c.path}>
+            <NavLink className={({ isActive }) => `landing-navlink ${isActive ? "font-bold underline underline-offset-8" : ""}`} key={c.id} to={c.path}>
               {c.shortLabel ?? c.label}
-            </Link>
+            </NavLink>
           ))}
         </div>
         <a

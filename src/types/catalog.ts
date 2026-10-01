@@ -25,7 +25,7 @@ export interface CatalogModel {
   style?: string;
   coverImage?: string;
   /** En el catálogo, gradient usa un degradado ink/gold sin fotografía. */
-  visualTreatment?: "gradient" | "photo";
+  visualTreatment?: "gradient" | "photo" | "vitela-preview";
   demoPath?: string;
   features: string[];
   status: ModelStatus;

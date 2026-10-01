@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { CatalogModel, CatalogExperienceType } from "../../types/catalog";
+import { events } from "../../data/events";
 import { categories } from "../../data/categories";
 const experienceLabels: Record<CatalogExperienceType, string> = {
   digital: "Digital",
@@ -8,11 +9,24 @@ const experienceLabels: Record<CatalogExperienceType, string> = {
 };
 export default function ModelCard({ model }: { model: CatalogModel }) {
   const category = categories.find((c) => c.id === model.category);
+  const previewEvent = model.visualTreatment === "vitela-preview"
+    ? events.find((event) => `/${event.slug}` === model.demoPath)
+    : undefined;
+  const photo = previewEvent?.special?.photo;
   const available = model.status === "available";
   return (
     <article className="catalog-card">
       <div className={`catalog-model-visual catalog-theme-${model.category}`}>
-        {model.coverImage && model.visualTreatment !== "gradient" ? (
+        {model.visualTreatment === "vitela-preview" ? (
+          <div className="catalog-vitela-preview">
+            <span className="catalog-vitela-eyebrow">Mi bautizo</span>
+            <span className="catalog-vitela-name">{previewEvent?.title}</span>
+            <div className="catalog-vitela-arch">
+              {photo && <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" style={{ objectPosition: photo.position }} />}
+              <span className="catalog-vitela-seal" aria-hidden="true" />
+            </div>
+          </div>
+        ) : model.coverImage && model.visualTreatment !== "gradient" ? (
           <img
             src={model.coverImage}
             alt={`Vista del modelo ${model.title}`}

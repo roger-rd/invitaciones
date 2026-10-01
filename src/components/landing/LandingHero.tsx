@@ -1,6 +1,7 @@
 import { catalogModels } from "../../data/catalog";
 import Reveal from "../Reveal";
 export default function LandingHero() {
+  const weddingCoverImage = catalogModels.find((m) => m.id === "boda-romantica-editorial")?.coverImage;
   return (
     <section className="landing-dark relative overflow-hidden">
       <div className="grain-overlay pointer-events-none absolute inset-0" aria-hidden="true" />
@@ -56,13 +57,16 @@ export default function LandingHero() {
           })}
           <div className="landing-device landing-device-2">
             <div className="landing-device-speaker" />
-            <div className="landing-wedding-preview">
-              <span className="text-xs uppercase tracking-widest">Nuestra historia</span>
-              <span className="font-display text-3xl italic">Matrimonios</span>
-              <span className="text-sm">El comienzo de un para siempre.</span>
-              <span className="mt-6 border-t border-gold-soft/50 pt-5 text-xs">
-                Abre un nuevo capítulo
-              </span>
+            {weddingCoverImage && (
+              <img
+                src={weddingCoverImage}
+                alt="Pareja de recién casados al atardecer, modelo de invitación de matrimonio"
+              />
+            )}
+            <div className="landing-device-caption">
+              <span>Invitaciones para matrimonios</span>
+              <strong>¡Nos casamos!</strong>
+              <span>Una experiencia para compartir</span>
             </div>
           </div>
         </div>
