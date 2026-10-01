@@ -31,7 +31,7 @@ export const events: EventData[] = [
       },
       people: [
         { title: "Sus padres", names: ["Alfredo Jesús López Rodríguez", "Marianna Andreina Guevara Manfrey"] },
-        { title: "Padrinos", names: ["Roger Rodríguez", "Mariant Rojas", "Robert Rondón", "Willianny Torres", "Abraham Alvarado", "Graciela Perez"] },
+        { title: "Padrinos", names: ["Roger Rodríguez", "Mariant Rojas", "Robert Rondón", "Willianny Torres", "Abraham Alvarado", "Graciela Pérez"] },
       ],
       dateTimeIso: "2026-10-16T18:00:00-03:00",
       dateLabel: "Viernes 16 de octubre de 2026",
