@@ -130,6 +130,12 @@ export interface SpecialCelebrationData {
 }
 
 export interface EventData {
+  share?: {
+    title: string;
+    description: string;
+    image: string;
+    url?: string;
+  };
   special?: SpecialCelebrationData;
   giftMessage?: string;
   giftItems?: string[];

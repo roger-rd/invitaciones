@@ -1,9 +1,16 @@
 import type { EventData } from "../types/event";
 import { RDRP_WHATSAPP_NUMBER } from "../config/whatsapp";
+import { SITE_URL } from "../config/site";
 
 export const events: EventData[] = [
   {
     slug: "alana-bautizo",
+    share: {
+      title: "Mi Bautizo · Alana Andrea López Guevara",
+      description: "Viernes 16 de octubre · Iglesia de los Sacramentinos · Santiago de Chile",
+      image: "/images/alana-bautizo/social-preview.webp",
+      url: `${SITE_URL}/alana-bautizo`,
+    },
     type: "special-celebration",
     template: "vitela-seal",
     title: "Alana Andrea",
