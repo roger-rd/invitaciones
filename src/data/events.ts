@@ -31,7 +31,7 @@ export const events: EventData[] = [
       },
       people: [
         { title: "Sus padres", names: ["Alfredo Jesús López Rodríguez", "Marianna Andreina Guevara Manfrey"] },
-        { title: "Padrinos", names: ["Roger Rodríguez", "Mariant Rojas", "Robert Rondón", "Willianny Torres", "Abraham Guevara", "Graciela Guevara"] },
+        { title: "Padrinos", names: ["Roger Rodríguez", "Mariant Rojas", "Robert Rondón", "Willianny Torres", "Abraham Alvarado", "Graciela Coromoto Perez"] },
       ],
       dateTimeIso: "2026-10-16T18:00:00-03:00",
       dateLabel: "Viernes 16 de octubre de 2026",
@@ -39,6 +39,20 @@ export const events: EventData[] = [
       // PENDIENTE: reemplazar por enlaces directos de Google Maps y Waze
       venue: { name: "Iglesia de los Sacramentinos", city: "Santiago de Chile", searchQuery: "Iglesia de los Sacramentinos, Santiago de Chile" },
       calendar: { title: "Bautizo de Alana Andrea", description: "Con la bendición de Dios, te esperamos." },
+      additionalEvents: [
+        {
+          eyebrow: "La celebración continúa",
+          dateLabel: "Sábado 17 de octubre de 2026",
+          // PENDIENTE: hora del sábado; al agregar dateTimeIso y timeLabel aparece la hora y el botón de calendario
+          venue: {
+            name: "En casa de la familia López Guevara",
+            address: "Piedra Roja 062",
+            city: "Quilicura, Santiago de Chile",
+            searchQuery: "Piedra Roja 062, Quilicura, Santiago de Chile",
+          },
+          calendar: { title: "Celebración del bautizo de Alana Andrea", description: "Con la bendición de Dios, te esperamos." },
+        },
+      ],
       closingMessage: "Gracias por acompañarme en este día tan especial.",
     },
   },

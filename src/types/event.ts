@@ -104,6 +104,15 @@ export interface DinoRanchThemeData {
   closingCharacterImage?: string;
 }
 
+export interface SpecialAdditionalEvent {
+  eyebrow?: string;
+  dateLabel: string;
+  dateTimeIso?: string;
+  timeLabel?: string;
+  venue: { name: string; city?: string; address?: string; mapsUrl?: string; wazeUrl?: string; searchQuery?: string };
+  calendar?: { title: string; description?: string };
+}
+
 export interface SpecialCelebrationData {
   eyebrow?: string;
   heading: string;
@@ -117,6 +126,7 @@ export interface SpecialCelebrationData {
   venue: { name: string; city?: string; address?: string; mapsUrl?: string; wazeUrl?: string; searchQuery?: string };
   calendar?: { title: string; description?: string };
   closingMessage?: string;
+  additionalEvents?: SpecialAdditionalEvent[];
 }
 
 export interface EventData {

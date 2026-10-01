@@ -11,6 +11,7 @@ import SpecialCountdown from "../components/special/SpecialCountdown";
 import SpecialVenueActions from "../components/special/VenueActions";
 import SpecialCalendarButton from "../components/special/SpecialCalendarButton";
 import SpecialClosing from "../components/special/SpecialClosing";
+import SpecialAdditionalEvent from "../components/special/SpecialAdditionalEvent";
 
 export default function SpecialVitelaTemplate({ event, data }: { event: EventData; data: SpecialCelebrationData }) {
   const [opened, setOpened] = useState(false);
@@ -37,6 +38,7 @@ export default function SpecialVitelaTemplate({ event, data }: { event: EventDat
         <Reveal><SpecialCountdown targetDate={data.dateTimeIso} dateLabel={data.dateLabel} timeLabel={data.timeLabel} /></Reveal>
         <Reveal><SpecialVenueActions venue={data.venue} timeLabel={data.timeLabel ?? `${data.dateTimeIso.slice(11, 16)} hrs`} /></Reveal>
         <Reveal><SpecialCalendarButton title={data.calendar?.title ?? `${data.heading} · ${data.honoreeName}`} description={data.calendar?.description} startIso={data.dateTimeIso} location={[data.venue.name, data.venue.city].filter(Boolean).join(", ")} /></Reveal>
+        {data.additionalEvents?.map((additionalEvent, index) => <Reveal key={`${additionalEvent.dateLabel}-${index}`}><SpecialAdditionalEvent event={additionalEvent} /></Reveal>)}
         <Reveal><SpecialClosing message={data.closingMessage} /></Reveal>
       </SpecialVellumSheet></div>}
     </div>
