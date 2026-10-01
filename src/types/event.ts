@@ -134,6 +134,7 @@ export interface EventData {
     title: string;
     description: string;
     image: string;
+    /** URL canónica; el generador añade '/' al final si falta. Por defecto: /<slug>/. */
     url?: string;
   };
   special?: SpecialCelebrationData;

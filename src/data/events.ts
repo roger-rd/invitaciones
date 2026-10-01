@@ -9,7 +9,7 @@ export const events: EventData[] = [
       title: "Mi Bautizo · Alana Andrea López Guevara",
       description: "Viernes 16 de octubre · Iglesia de los Sacramentinos · Santiago de Chile",
       image: "/images/alana-bautizo/social-preview.webp",
-      url: `${SITE_URL}/alana-bautizo`,
+      url: `${SITE_URL}/alana-bautizo/`,
     },
     type: "special-celebration",
     template: "vitela-seal",

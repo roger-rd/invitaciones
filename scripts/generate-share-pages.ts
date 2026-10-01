@@ -17,7 +17,8 @@ for (const { slug, share } of events) {
     throw new Error(`Invalid share page slug: ${slug}`);
   }
 
-  const url = new URL(share.url ?? `/${slug}`, SITE_URL).href;
+  const shareUrl = new URL(share.url ?? `/${slug}/`, SITE_URL).href;
+  const url = shareUrl.endsWith("/") ? shareUrl : `${shareUrl}/`;
   const image = new URL(share.image, `${SITE_URL}/`).href;
   const metadata = [
     `<title>${escapeHtml(share.title)}</title>`,
