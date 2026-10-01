@@ -31,7 +31,7 @@ export const events: EventData[] = [
       },
       people: [
         { title: "Sus padres", names: ["Alfredo Jesús López Rodríguez", "Marianna Andreina Guevara Manfrey"] },
-        { title: "Padrinos", names: ["Roger Rodríguez", "Mariant Rojas", "Robert Rondón", "Willianny Torres", "Abraham Alvarado", "Graciela Coromoto Perez"] },
+        { title: "Padrinos", names: ["Roger Rodríguez", "Mariant Rojas", "Robert Rondón", "Willianny Torres", "Abraham Alvarado", "Graciela Perez"] },
       ],
       dateTimeIso: "2026-10-16T18:00:00-03:00",
       dateLabel: "Viernes 16 de octubre de 2026",
@@ -43,10 +43,11 @@ export const events: EventData[] = [
         {
           eyebrow: "La celebración continúa",
           dateLabel: "Sábado 17 de octubre de 2026",
+          timeLabel: "17:00 hrs",
           // PENDIENTE: hora del sábado; al agregar dateTimeIso y timeLabel aparece la hora y el botón de calendario
           venue: {
             name: "En casa de la familia López Guevara",
-            address: "Piedra Roja 062",
+            address: "Piedra Roja 062 casa N°22",
             city: "Quilicura, Santiago de Chile",
             searchQuery: "Piedra Roja 062, Quilicura, Santiago de Chile",
           },
