@@ -3,6 +3,38 @@ import { RDRP_WHATSAPP_NUMBER } from "../config/whatsapp";
 import { SITE_URL } from "../config/site";
 
 export const events: EventData[] = [
+  // Datos ficticios de demostración.
+  {
+    slug: "mateo-bautizo",
+    type: "special-celebration",
+    template: "champagne-envelope",
+    title: "Mateo Alejandro",
+    date: "2026-11-21T12:00:00-03:00",
+    location: "Parroquia Santa Clara, Calle Ejemplo 1234, Santiago de Chile",
+    mapsUrl: "",
+    whatsapp: RDRP_WHATSAPP_NUMBER,
+    coverImage: "",
+    gallery: [],
+    message: "Te invito a compartir un día muy especial.",
+    share: {
+      title: "Mi Bautizo · Mateo Alejandro",
+      description: "Sábado 21 de noviembre · Parroquia Santa Clara · Santiago de Chile",
+      image: "/images/mateo-bautizo/social-preview.webp",
+      url: `${SITE_URL}/mateo-bautizo/`,
+    },
+    special: {
+      heading: "Te invito a mi bautizo",
+      honoreeName: "Mateo Alejandro",
+      dateTimeIso: "2026-11-21T12:00:00-03:00",
+      dateLabel: "Sábado 21 de noviembre de 2026",
+      timeLabel: "12:00 hrs",
+      venue: {
+        name: "Parroquia Santa Clara",
+        address: "Calle Ejemplo 1234",
+        city: "Santiago de Chile",
+      },
+    },
+  },
   {
     slug: "alana-bautizo",
     share: {

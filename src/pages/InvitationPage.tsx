@@ -5,6 +5,7 @@ import WeddingTemplate from "../templates/WeddingTemplate";
 import WeddingRomanticTemplate from "../templates/WeddingRomanticTemplate";
 import WeddingClassicDigitalTemplate from "../templates/WeddingClassicDigitalTemplate";
 import QuinceTemplate from "../templates/QuinceTemplate";
+import ChampagneEnvelopeTemplate from "../templates/ChampagneEnvelopeTemplate";
 import SpecialVitelaTemplate from "../templates/SpecialVitelaTemplate";
 import BirthdayTemplate from "../templates/BirthdayTemplate";
 
@@ -35,6 +36,7 @@ export default function InvitationPage() {
   }
 
   if (event.type === "special-celebration") {
+    if (event.template === "champagne-envelope" && event.special) return <ChampagneEnvelopeTemplate key={event.slug} event={event} data={event.special} />;
     if (event.template === "vitela-seal" && event.special) return <SpecialVitelaTemplate key={event.slug} event={event} data={event.special} />;
     return (
       <main className="catalog-theme-special-celebration min-h-svh px-6 py-24 text-center">

@@ -1,3 +1,4 @@
+import DoveEngraving from "../envelope/DoveEngraving";
 import { Link } from "react-router-dom";
 import type { CatalogModel, CatalogExperienceType } from "../../types/catalog";
 import { events } from "../../data/events";
@@ -9,7 +10,7 @@ const experienceLabels: Record<CatalogExperienceType, string> = {
 };
 export default function ModelCard({ model }: { model: CatalogModel }) {
   const category = categories.find((c) => c.id === model.category);
-  const previewEvent = model.visualTreatment === "vitela-preview"
+  const previewEvent = (model.visualTreatment === "vitela-preview" || model.visualTreatment === "champagne-preview")
     ? events.find((event) => `/${event.slug}` === model.demoPath)
     : undefined;
   const photo = previewEvent?.special?.photo;
@@ -24,6 +25,18 @@ export default function ModelCard({ model }: { model: CatalogModel }) {
             <div className="catalog-vitela-arch">
               {photo && <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" style={{ objectPosition: photo.position }} />}
               <span className="catalog-vitela-seal" aria-hidden="true" />
+            </div>
+          </div>
+        ) : model.visualTreatment === "champagne-preview" ? (
+          <div className="catalog-champagne-preview" aria-hidden="true">
+            <div className="catalog-champagne-flap" />
+            <div className="catalog-champagne-card">
+              <DoveEngraving variant="simple" />
+              <span className="catalog-champagne-heading">{previewEvent?.special?.heading}</span>
+              <span className="catalog-champagne-name">{previewEvent?.special?.honoreeName}</span>
+            </div>
+            <div className="catalog-champagne-envelope">
+              <span className="catalog-champagne-seal">{Array.from(previewEvent?.special?.honoreeName.trim() ?? "M")[0]}</span>
             </div>
           </div>
         ) : model.coverImage && model.visualTreatment !== "gradient" ? (

@@ -2,7 +2,7 @@ export type EventType = "wedding" | "quince" | "birthday" | "kids-birthday" | "s
 
 export type KidsTemplateId = "circus" | "dino-ranch" | "kids-digital-pastel" | "kids-digital-poster";
 export type WeddingTemplateId = "romantic-editorial" | "classic-digital";
-export type SpecialTemplateId = "vitela-seal";
+export type SpecialTemplateId = "vitela-seal" | "champagne-envelope";
 export type EventTemplateId = KidsTemplateId | WeddingTemplateId | SpecialTemplateId;
 
 export interface WeddingVenue {
